@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Collection | Furniture Roomstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1>Furniture</h1>
+                    <span>Roomstore</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Furniture</a>
+                <a href="shop.html">Categories</a>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="product.html">Deals</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="admin.html" class="btn-perspective">
+                    <i class="fa-solid fa-magnifying-glass"></i> Free perspective
+                </a>
+                <a href="login.html" class="btn-gold" style="font-size: 13px;">Sign in</a>
+                <a href="cart.html" class="nav-icon" title="Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= SHOP HERO BANNER ================= -->
+    <section class="shop-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title" style="margin-bottom: 18px;">
+                    <strong>Forest comfort</strong><br>
+                    <span style="font-weight: 300;">Exclusive collections.</span>
+                </h2>
+                <a href="#catalog" class="btn-gold" style="padding: 10px 26px;">Find local</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TOOLBAR & CATALOG LAYOUT ================= -->
+    <main class="container" id="catalog">
+        <!-- Top Search & View Bar -->
+        <div class="shop-toolbar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search here" onkeyup="filterProducts()" />
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="toolbar-controls">
+                <button class="icon-toggle"><i class="fa-solid fa-sliders"></i></button>
+                <button class="icon-toggle active"><i class="fa-solid fa-grip"></i></button>
+                <button class="icon-toggle"><i class="fa-solid fa-list"></i></button>
+                <select class="sort-select" id="categorySelect" onchange="filterByCategory()">
+                    <option value="all">All</option>
+                    <option value="sofa">Sofas &amp; Armchairs</option>
+                    <option value="bed">Beds &amp; Bedroom</option>
+                    <option value="dining">Dining Sets</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Sidebar + 4x3 Product Grid -->
+        <div class="shop-layout">
+            <!-- Left Sidebar Filters -->
+            <aside class="filter-sidebar">
+                <div class="filter-group">
+                    <div class="filter-header">
+                        <span>Showroom</span>
+                        <i class="fa-solid fa-chevron-up" style="font-size: 12px;"></i>
+                    </div>
+                    <ul class="filter-list">
+                        <li><label class="checkbox-label"><input type="checkbox" checked onchange="filterProducts()">
+                                Showroom</label></li>
+                        <li><label class="checkbox-label"><input type="checkbox" onchange="filterProducts()"> Dining
+                                categories</label></li>
+                        <li><label class="checkbox-label"><input type="checkbox" onchange="filterProducts()">
+                                Bedroom</label></li>
+                        <li><label class="checkbox-label"><input type="checkbox" onchange="filterProducts()">
+                                Lamp</label></li>
+                        <li><label class="checkbox-label"><input type="checkbox" onchange="filterProducts()">
+                                Homewares</label></li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-header">
+                        <span>Furniture</span>
+                        <i class="fa-solid fa-chevron-up" style="font-size: 12px;"></i>
+                    </div>
+                    <ul class="filter-list">
+                        <li><label class="checkbox-label"><input type="checkbox"> Outdoor/Indoor</label></li>
+                        <li><label class="checkbox-label"><input type="checkbox"> Natural</label></li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-header" style="margin-bottom:0;">
+                        <span>Designers</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-header" style="margin-bottom:0;">
+                        <span>Room</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-header" style="margin-bottom:0;">
+                        <span>Materials</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-header">
+                        <span>Color</span>
+                        <i class="fa-solid fa-chevron-up" style="font-size: 12px;"></i>
+                    </div>
+                    <div class="color-swatches">
+                        <span class="swatch active" style="background: #DFDCD5;" title="Cream"></span>
+                        <span class="swatch" style="background: #6B442A;" title="Walnut"></span>
+                        <span class="swatch" style="background: #9DB0B8;" title="Slate Blue"></span>
+                        <span class="swatch" style="background: #C5A059;" title="Gold"></span>
+                        <span class="swatch" style="background: #1F2A44;" title="Navy"></span>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-header" style="margin-bottom:0;">
+                        <span>Price</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-header" style="margin-bottom:0;">
+                        <span>Brand</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
+                    </div>
+                </div>
+
+                <div class="filter-group" style="border-bottom:none;">
+                    <div class="filter-header" style="margin-bottom:0;">
+                        <span>Rating</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 12px;"></i>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right 12-Item Product Catalog Grid -->
+            <section class="shop-grid" id="shopGrid">
+                <!-- Row 1: Item 1 -->
+                <div class="product-card" data-category="sofa">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80"
+                            alt="Mondino armchair">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mondino armchair</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$240.50</strong> <span
+                                class="old-price">$290.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mondino armchair', 240.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 1: Item 2 -->
+                <div class="product-card" data-category="dining">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80"
+                            alt="Elenora dining set">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Elenora dining set</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$420.50</strong> <span
+                                class="old-price">$480.00</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Elenora dining set', 420.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 1: Item 3 -->
+                <div class="product-card" data-category="dining">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=600&q=80"
+                            alt="Mondino wood desk">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mondino lounge table</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$210.50</strong> <span
+                                class="old-price">$245.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mondino lounge table', 210.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 1: Item 4 -->
+                <div class="product-card" data-category="sofa">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80"
+                            alt="Mordino sofa">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mordino armchair</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$324.50</strong> <span
+                                class="old-price">$360.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mordino armchair', 324.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 2: Item 5 -->
+                <div class="product-card" data-category="dining">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=600&q=80"
+                            alt="Mondino dining room">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mondino dining set</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$524.50</strong> <span
+                                class="old-price">$590.00</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mondino dining set', 524.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 2: Item 6 -->
+                <div class="product-card" data-category="sofa">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=600&q=80"
+                            alt="Elenera club chair">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Elenera velvet chair</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$145.50</strong> <span
+                                class="old-price">$180.00</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Elenera velvet chair', 145.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 2: Item 7 -->
+                <div class="product-card" data-category="bed">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+                            alt="Mondino bed">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mondino luxury bed</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$624.50</strong> <span
+                                class="old-price">$690.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mondino luxury bed', 624.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 2: Item 8 -->
+                <div class="product-card" data-category="sofa">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=600&q=80"
+                            alt="Mordino sofa set">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mordino twin sofa</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$380.00</strong> <span
+                                class="old-price">$424.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mordino twin sofa', 380.00); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 3: Item 9 -->
+                <div class="product-card" data-category="dining">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=600&q=80"
+                            alt="Mondino oak table">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mondino oak dining</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$410.50</strong> <span
+                                class="old-price">$450.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mondino oak dining', 410.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 3: Item 10 -->
+                <div class="product-card" data-category="sofa">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80"
+                            alt="Mondino sofa">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Mondino armchair</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$290.50</strong> <span
+                                class="old-price">$324.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Mondino armchair', 290.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 3: Item 11 -->
+                <div class="product-card" data-category="bed">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80"
+                            alt="Elenora bed">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Elenora cabinet</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$224.50</strong> <span
+                                class="old-price">$260.50</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Elenora cabinet', 224.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Row 3: Item 12 -->
+                <div class="product-card" data-category="bed">
+                    <a href="product.html" class="product-img-wrap" style="display:block;">
+                        <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80"
+                            alt="Elenora bed">
+                    </a>
+                    <div class="product-info-top">
+                        <a href="product.html" class="product-title">Elenora king bed</a>
+                        <i class="fa-regular fa-heart" style="color:var(--text-muted); cursor:pointer;"></i>
+                    </div>
+                    <div class="product-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="product-meta">
+                        <div><strong style="color:var(--text-dark); font-size:13px;">$540.50</strong> <span
+                                class="old-price">$600.00</span></div>
+                        <a href="#" class="action-circle"
+                            onclick="addProductToCart('Elenora king bed', 540.50); return false;"><i
+                                class="fa-solid fa-cart-shopping" style="font-size:11px;"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ================= SHARED FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+                    <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                    <div class="brand-text">
+                        <h1 style="color:#fff;">Furniture</h1>
+                        <span>Roomstore</span>
+                    </div>
+                </a>
+                <p><i class="fa-brands fa-facebook" style="color:var(--gold); margin-right:6px;"></i> Furgin Official
+                </p>
+            </div>
+            <div>
+                <h4>Department</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="shop.html">Furniture</a></li>
+                    <li><a href="shop.html">Living &amp; Health</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Furniture</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="shop.html">Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="social-row">
+                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+                <h4>Newsletter sign up</h4>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Email address" required />
+                    <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('#shopGrid .product-card');
+            cards.forEach(card => {
+                const title = card.querySelector('.product-title').innerText.toLowerCase();
+                card.style.display = title.includes(query) ? 'block' : 'none';
+            });
+        }
+
+        function filterByCategory() {
+            const category = document.getElementById('categorySelect').value;
+            const cards = document.querySelectorAll('#shopGrid .product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.querySelectorAll('.swatch').forEach(swatch => {
+            swatch.addEventListener('click', function () {
+                document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

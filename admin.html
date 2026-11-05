@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Furniture Roomstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Chart.js for Interactive Revenue & Category Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="admin-body">
+
+    <!-- ================= LEFT DARK SIDEBAR ================= -->
+    <aside class="admin-sidebar">
+        <div>
+            <a href="index.html" class="admin-brand">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1 style="color:#fff;">Furniture</h1>
+                    <span>Furniture</span>
+                </div>
+            </a>
+
+            <ul class="admin-menu">
+                <li><a href="admin.html" class="active"><i class="fa-solid fa-table-columns"></i> Dashboard</a></li>
+                <li><a href="shop.html"><i class="fa-solid fa-cube"></i> Products</a></li>
+                <li><a href="cart.html"><i class="fa-solid fa-dollar-sign"></i> Sales</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-user-group"></i> Customers</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+        </div>
+
+        <a href="login.html" class="admin-signout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+        </a>
+    </aside>
+
+    <!-- ================= RIGHT MAIN WORKSPACE ================= -->
+    <main class="admin-main">
+
+        <!-- Top Search & Admin Profile Bar -->
+        <header class="admin-topbar">
+            <div class="admin-search">
+                <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+                <input type="text" placeholder="Search..." />
+            </div>
+
+            <div class="admin-profile">
+                <div class="admin-avatar"><i class="fa-solid fa-user"></i></div>
+                <span>Store Admin</span>
+            </div>
+        </header>
+
+        <!-- 4 KPI Metric Cards -->
+        <section class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-left">
+                    <div class="kpi-icon" style="background: #F9EBD5; color: #C59B52;">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span>Total Sales</span>
+                        <strong>320,000</strong>
+                    </div>
+                </div>
+                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +12%</span>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-left">
+                    <div class="kpi-icon" style="background: #FDE8E8; color: #D9534F;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span>Orders</span>
+                        <strong>2,020</strong>
+                    </div>
+                </div>
+                <span class="kpi-trend" style="background:#FDE8E8; color:#C0392B;"><i
+                        class="fa-solid fa-arrow-trend-up"></i> +5%</span>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-left">
+                    <div class="kpi-icon" style="background: #E2F5EA; color: #2ECC71;">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span>Visitors</span>
+                        <strong>15,300</strong>
+                    </div>
+                </div>
+                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +18%</span>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-left">
+                    <div class="kpi-icon" style="background: #E3EEFF; color: #3B82F6;">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div class="kpi-info">
+                        <span>Active Users</span>
+                        <strong>1,250</strong>
+                    </div>
+                </div>
+                <span class="kpi-trend" style="background:#E3EEFF; color:#2563EB;"><i
+                        class="fa-solid fa-arrow-trend-up"></i> +8%</span>
+            </div>
+        </section>
+
+        <!-- Charts Section: Overall Revenue Line Chart + Sales Categories Bar Chart -->
+        <section class="charts-grid">
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <div>
+                        <h3>Overall Revenue</h3>
+                        <p>Performance in time counts</p>
+                    </div>
+                    <span class="pill-btn">30+ days</span>
+                </div>
+                <canvas id="revenueChart" height="115"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <div>
+                        <h3>Sales Categories</h3>
+                        <p>Sales by category</p>
+                    </div>
+                    <span class="pill-btn"><i class="fa-solid fa-chart-column"></i></span>
+                </div>
+                <canvas id="categoryChart" height="215"></canvas>
+            </div>
+        </section>
+
+        <!-- Bottom Recent Orders Table -->
+        <section class="orders-card">
+            <div class="chart-card-header" style="margin-bottom: 6px;">
+                <h3>Recent Orders</h3>
+                <a href="shop.html" style="font-size: 13px; color: var(--text-muted);">Show Orders</a>
+            </div>
+
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" /> Order ID ↓</th>
+                        <th>Product</th>
+                        <th>Customer Name</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" /> 20295780003</td>
+                        <td><strong>Bonanee Furniture Set</strong></td>
+                        <td>Amassa Kinin</td>
+                        <td><span class="status-pill status-completed">completed</span></td>
+                        <td><strong>$200.00</strong></td>
+                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" /> 20295790008</td>
+                        <td><strong>Tenmencare Armchair</strong></td>
+                        <td>Aamssa Kinin</td>
+                        <td><span class="status-pill status-canceled">canceled</span></td>
+                        <td><strong>$28.00</strong></td>
+                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" /> 2029570001</td>
+                        <td><strong>Computer Furniture Desk</strong></td>
+                        <td>Aamssa Kinin</td>
+                        <td><span class="status-pill status-pending-blue">pending</span></td>
+                        <td><strong>$40.00</strong></td>
+                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" /> 2029570009</td>
+                        <td><strong>Turonynans Sofa</strong></td>
+                        <td>Ravam Bat</td>
+                        <td><span class="status-pill status-pending-gold">pending</span></td>
+                        <td><strong>$200.00</strong></td>
+                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Chart.js Configuration & Shared Script Integration -->
+    <script>
+        const revCtx = document.getElementById('revenueChart').getContext('2d');
+        const gradient = revCtx.createLinearGradient(0, 0, 0, 240);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.32)');
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+
+        new Chart(revCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Revenue ($)',
+                    data: [25, 115, 35, 195, 55, 160, 198],
+                    borderColor: '#3B76D6',
+                    backgroundColor: gradient,
+                    borderWidth: 2.5,
+                    fill: true,
+                    tension: 0.42,
+                    pointBackgroundColor: '#3B76D6',
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, max: 240, ticks: { callback: v => '$' + v } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        const catCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(catCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Apr', 'May', 'Jun', 'Jul', 'Sep', 'Dec'],
+                datasets: [
+                    {
+                        label: 'Indoor',
+                        data: [130, 155, 245, 280, 200, 305],
+                        backgroundColor: '#4A80D4',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Outdoor',
+                        data: [110, 215, 180, 330, 235, 335],
+                        backgroundColor: '#CEAA66',
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, max: 400 },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

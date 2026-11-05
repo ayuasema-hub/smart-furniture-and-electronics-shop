@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Furniture Roomstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1>Furniture</h1>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="shop.html">Categories</a>
+                <a href="shop.html">Shop</a>
+                <a href="product.html">Deals</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html" class="active">Resources</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="admin.html" class="btn-perspective">
+                    <i class="fa-solid fa-box"></i> Free perspective
+                </a>
+                <a href="login.html" class="btn-gold">Sign in</a>
+                <a href="cart.html" class="nav-icon" title="Shopping Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= CONTACT HERO BANNER ================= -->
+    <section class="contact-hero">
+        <div class="container">
+            <h2>Contact us</h2>
+            <p>Connect with our showroom specialists about bespoke furniture collections.</p>
+        </div>
+    </section>
+
+    <!-- ================= MAIN CONTACT FORM + MAP ================= -->
+    <main class="container">
+        <section class="contact-main-grid">
+            <!-- Left: Contact Form -->
+            <div>
+                <p class="contact-subtag">Contacts</p>
+                <h3 class="contact-form-title">Contact form</h3>
+                <form
+                    onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to the showroom.'); this.reset();">
+                    <div class="form-control-group">
+                        <input type="text" class="form-input" placeholder="Your Name" required />
+                    </div>
+                    <div class="form-control-group">
+                        <input type="email" class="form-input" placeholder="Email Address" required />
+                    </div>
+                    <div class="form-control-group">
+                        <textarea class="form-textarea" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-send-msg">Send message</button>
+                </form>
+            </div>
+
+            <!-- Right: Embedded Interactive Map -->
+            <div class="map-box">
+                <iframe
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=38.74,8.98,38.79,9.03&amp;layer=mapnik"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Bottom Row: Contact Details + Showroom Preview Photo -->
+        <section class="contact-bottom-grid">
+            <div class="contact-info-columns">
+                <div>
+                    <h4>Contact us</h4>
+                    <div class="info-item">
+                        <div class="info-icon-circle"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <strong>Phone number</strong><br>
+                            <span>contact.furniture.com</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon-circle"><i class="fa-regular fa-envelope"></i></div>
+                        <div>
+                            <strong>Email visit</strong><br>
+                            <span>info@furniture.furniture.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Contact info</h4>
+                    <div class="info-item">
+                        <div class="info-icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <strong>Example St 25, 1000</strong><br>
+                            <span>Example store.furniture.com</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon-circle"><i class="fa-solid fa-headset"></i></div>
+                        <div>
+                            <strong>+1234567890</strong><br>
+                            <span>info@furniture.furniture.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-Lounge-preview">
+                <!-- SWAP YOUR IMAGE HERE -->
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80"
+                    alt="Showroom Lounge Preview">
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= SHARED FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+                    <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                    <div class="brand-text">
+                        <h1 style="color:#fff;">Furniture</h1>
+                        <span>Roomstore</span>
+                    </div>
+                </a>
+                <p><i class="fa-brands fa-facebook" style="color:var(--gold); margin-right:6px;"></i> signin</p>
+            </div>
+            <div>
+                <h4>Department</h4>
+                <ul>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="shop.html">Showrooms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="shop.html">Resources</a></li>
+                    <li><a href="shop.html">Rooms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About us</h4>
+                <ul>
+                    <li><a href="shop.html">Resources</a></li>
+                    <li><a href="about.html">More advances</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Email address..." required />
+                    <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JavaScript Integration -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

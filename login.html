@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | Furniture Roomstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-circle"><i class="fa-solid fa-leaf"></i></div>
+                <div class="brand-text">
+                    <h1>Furniture</h1>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Furniture</a>
+                <a href="shop.html">Categories</a>
+                <a href="product.html">Deals</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Resources</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="admin.html" class="btn-perspective">
+                    <i class="fa-solid fa-box"></i> Free perspective
+                </a>
+                <a href="login.html" class="btn-gold">Sign In</a>
+                <a href="shop.html" class="nav-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= SPLIT SCREEN SIGN IN ================= -->
+    <main class="container login-section">
+        <div class="login-split-layout">
+
+            <!-- Left: Warm Interior Living Room Photo -->
+            <div class="login-showcase-img">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
+                    alt="Luxury Living Room Sectional">
+            </div>
+
+            <!-- Right: Sign In Card -->
+            <div class="login-card">
+                <div class="login-user-badge">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+                <h2>Sign In</h2>
+
+                <form onsubmit="event.preventDefault(); window.location.href='admin.html';">
+                    <div class="login-field-group">
+                        <label for="username">Username/Email</label>
+                        <input type="text" id="username" class="login-input" placeholder="admin@furniture.com"
+                            required />
+                    </div>
+
+                    <div class="login-field-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="login-input" placeholder="••••••••" required />
+                    </div>
+
+                    <button type="submit" class="btn-signin-dark">Sign In</button>
+                </form>
+
+                <div class="login-divider">Or continue with</div>
+
+                <div class="oauth-buttons">
+                    <button type="button" class="oauth-circle" onclick="window.location.href='admin.html'"
+                        title="Google">
+                        <i class="fa-brands fa-google" style="color: #DB4437;"></i>
+                    </button>
+                    <button type="button" class="oauth-circle" onclick="window.location.href='admin.html'"
+                        title="Facebook">
+                        <i class="fa-brands fa-facebook-f" style="color: #1877F2;"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= SHARED FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+                    <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                    <div class="brand-text">
+                        <h1 style="color:#fff;">Furniture</h1>
+                        <span>Roomstore</span>
+                    </div>
+                </a>
+                <p><i class="fa-brands fa-facebook" style="color:var(--gold); margin-right:6px;"></i> signin</p>
+            </div>
+            <div>
+                <h4>Department</h4>
+                <ul>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="shop.html">Collections</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="shop.html">Resources</a></li>
+                    <li><a href="shop.html">Rooms</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>About us</h4>
+                <ul>
+                    <li><a href="shop.html">Resources</a></li>
+                    <li><a href="about.html">More advances</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="social-row">
+                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <h4>Newsletter / Email address</h4>
+                <p>Signup info@furniture.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JavaScript Integration -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
