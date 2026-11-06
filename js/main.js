@@ -2,12 +2,11 @@
 // SHARED E-COMMERCE JAVASCRIPT (main.js)
 // ==========================================
 
-// Default initial cart items if local storage is empty
-const defaultCart = [
-    { name: "Mondino armchair", price: 24.50, qty: 1, image: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=400&q=80" },
-    { name: "Elenora bed", price: 94.00, qty: 1, image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80" },
-    { name: "Furnase armchair", price: 24.00, qty: 1, image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=400&q=80" }
-];
+function formatETB(n) {
+    return Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ETB';
+}
+
+const defaultCart = [];
 
 // Initialize localStorage cart if it doesn't exist yet
 function getCart() {
@@ -15,8 +14,21 @@ function getCart() {
     if (!cart) {
         cart = JSON.stringify(defaultCart);
         localStorage.setItem('furniture_cart', cart);
+        return JSON.parse(cart);
     }
-    return JSON.parse(cart);
+    const parsed = JSON.parse(cart);
+    let migrated = false;
+    parsed.forEach(item => {
+        if (!item.id && typeof PRODUCTS !== 'undefined') {
+            const match = PRODUCTS.find(product => product.name === item.name);
+            if (match) {
+                item.id = match.id;
+                migrated = true;
+            }
+        }
+    });
+    if (migrated) localStorage.setItem('furniture_cart', JSON.stringify(parsed));
+    return parsed;
 }
 
 function saveCart(cart) {
@@ -37,14 +49,15 @@ function updateGlobalBadge() {
 }
 
 // Universal function to add any product to the cart from Homepage or Shop catalog
-function addProductToCart(productName, productPrice, productImage) {
+function addProductToCart(productId, productName, productPrice, productImage) {
     let cart = getCart();
-    const existingIndex = cart.findIndex(item => item.name === productName);
+    const existingIndex = cart.findIndex(item => item.id === productId);
 
     if (existingIndex > -1) {
         cart[existingIndex].qty += 1;
     } else {
         cart.push({
+            id: productId,
             name: productName,
             price: parseFloat(productPrice),
             qty: 1,

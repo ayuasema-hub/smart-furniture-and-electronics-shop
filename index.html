@@ -4,60 +4,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Furniture Roomstore | Exclusive Furniture Collection</title>
+    <title>Furniture Roomstore | Furniture &amp; Appliances in Ethiopia</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <!-- Shared Stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/products.js" defer></script>
+    <script src="js/render.js" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                <div class="brand-text">
-                    <h1>Furniture</h1>
-                    <span>Roomstore</span>
-                </div>
-            </a>
-
-            <nav class="nav-links">
-                <a href="index.html" class="active">Furniture</a>
-                <a href="../pages/shop.html">Categories</a>
-                <a href="../pages/shop.html">Shop</a>
-                <a href="../pages/product.html">Deals</a>
-                <a href="../pages/about.html">About</a>
-                <a href="../pages/contact.html">Contact</a>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="../pages/admin.html" class="btn-perspective">
-                    <i class="fa-solid fa-chart-pie"></i> Admin View
-                </a>
-                <a href="../pages/login.html" class="btn-gold">Sign up</a>
-                <a href="../pages/cart.html" class="nav-icon" title="Shopping Cart">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span class="cart-badge" id="cart-count">3</span>
-                </a>
-                <a href="../pages/shop.html" class="nav-icon" title="Search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </a>
+    <div class="container nav-container">
+        <a href="index.html" class="brand-logo">
+            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+            <div class="brand-text">
+                <h1>Furniture &amp; Appliances</h1>
+                <span>Roomstore</span>
             </div>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="pages/shop.html">Shop</a>
+            <a href="pages/product.html">Deals</a>
+            <a href="pages/about.html">About</a>
+            <a href="pages/contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="pages/login.html" class="btn-gold">Sign in</a>
+            <a href="pages/cart.html" class="nav-icon" title="Shopping Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+            <a href="pages/shop.html" class="nav-icon" title="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- ================= HERO SECTION ================= -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <p class="hero-subtitle">Modern interior comfort collection</p>
+                <p class="hero-subtitle">Modern Furniture &amp; Appliances | Addis Ababa</p>
                 <h2 class="hero-title">Upgrade Your Comfort /<br>Exclusive Furniture Collection</h2>
                 <p class="hero-desc">Build your luxurious living space with handcrafted modern furniture collections.
                 </p>
-                <a href="../pages/shop.html" class="btn-gold" style="padding: 12px 28px; border-radius: 8px;">Discover More</a>
+                <a href="pages/shop.html" class="btn-gold" style="padding: 12px 28px; border-radius: 8px;">Discover More</a>
             </div>
         </div>
     </section>
@@ -89,25 +86,25 @@
 
         <!-- ================= 4 CATEGORY SHOWCASE CARDS ================= -->
         <div class="category-grid">
-            <a href="shop.html" class="category-card">
+            <a href="pages/shop.html" class="category-card">
                 <!-- SWAP YOUR IMAGE HERE -->
                 <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80"
                     alt="Featured products">
                 <div class="category-overlay">Featured products</div>
             </a>
-            <a href="shop.html" class="category-card">
+            <a href="pages/shop.html?room=living" class="category-card">
                 <!-- SWAP YOUR IMAGE HERE -->
                 <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
                     alt="Exclusive bedroom">
                 <div class="category-overlay">Exclusive living &amp; bedroom</div>
             </a>
-            <a href="shop.html" class="category-card">
+            <a href="pages/shop.html?category=tvstand" class="category-card">
                 <!-- SWAP YOUR IMAGE HERE -->
                 <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80"
                     alt="TV Console Cabinets">
                 <div class="category-overlay">TV console cabinets</div>
             </a>
-            <a href="shop.html" class="category-card">
+            <a href="pages/shop.html" class="category-card">
                 <!-- SWAP YOUR IMAGE HERE -->
                 <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80"
                     alt="Featured Lounge">
@@ -125,95 +122,7 @@
             </div>
         </div>
 
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80"
-                        alt="Emerald Velvet Sofa">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Furniture benchoss</a>
-                    <span class="product-price">$240.50</span>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><span class="badge-dark">5.0 rating</span> <span class="old-price">$295.00</span></div>
-                    <a href="#" class="action-circle" title="Add to Cart"
-                        onclick="addProductToCart('Furniture benchoss', 240.50); return false;"><i
-                            class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80"
-                        alt="Wooden Platform Bed">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Furniture bedframe</a>
-                    <span class="product-price">$340.50</span>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><span class="badge-dark">5.0 rating</span> <span class="old-price">$390.00</span></div>
-                    <a href="#" class="action-circle" title="Add to Cart"
-                        onclick="addProductToCart('Furniture bedframe', 340.50); return false;"><i
-                            class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=600&q=80"
-                        alt="Modern Accent Armchair">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Furniture armchair</a>
-                    <span class="product-price">$136.50</span>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><span class="badge-dark">5.0 rating</span> <span class="old-price">$160.00</span></div>
-                    <a href="#" class="action-circle" title="Add to Cart"
-                        onclick="addProductToCart('Furniture armchair', 136.50); return false;"><i
-                            class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80"
-                        alt="Tuwoka TV Display">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Tuwoka TV cabinet</a>
-                    <span class="product-price">$180.50</span>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><span class="badge-dark">5.0 rating</span> <span class="old-price">$220.00</span></div>
-                    <a href="#" class="action-circle" title="Add to Cart"
-                        onclick="addProductToCart('Tuwoka TV cabinet', 180.50); return false;"><i
-                            class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
+        <div class="product-grid" id="featuredGrid"></div>
 
         <!-- ================= BOTTOM LIFESTYLE BANNER ================= -->
         <div class="lifestyle-banner">
@@ -221,73 +130,73 @@
                 <div class="banner-tag">Lifestyle Banner</div>
                 <h3>Dennies Innovame</h3>
                 <p>Elevate your dining room with handcrafted solid oak tables and ergonomic seating collections.</p>
-                <a href="../pages/shop.html" class="btn-gold" style="border-radius: 6px; padding: 10px 24px;">Discover More</a>
+                <a href="pages/shop.html" class="btn-gold" style="border-radius: 6px; padding: 10px 24px;">Discover More</a>
             </div>
         </div>
     </section>
 
     <!-- ================= SHARED FOOTER ================= -->
     <footer class="footer">
-        <div class="container footer-grid">
-            <div>
-                <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
-                    <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                    <div class="brand-text">
-                        <h1 style="color:#fff;">Furniture</h1>
-                        <span>Roomstore</span>
-                    </div>
-                </a>
-                <h4>Contact Info</h4>
-                <p><i class="fa-solid fa-envelope" style="color:var(--gold); margin-right:6px;"></i>
-                    info@furnitureroomstore.com</p>
-            </div>
-
-            <div>
-                <h4>Department</h4>
-                <ul>
-                    <li><a href="../pages/about.html">About Us</a></li>
-                    <li><a href="../pages/shop.html">Designers</a></li>
-                    <li><a href="../pages/shop.html">Showrooms</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="../pages/shop.html">Living Room</a></li>
-                    <li><a href="../pages/shop.html">Bedroom Sets</a></li>
-                    <li><a href="../pages/shop.html">Dining Tables</a></li>
-                    <li><a href="../pages/about.html">About</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Furniture</h4>
-                <ul>
-                    <li><a href="../pages/shop.html">Portfolios</a></li>
-                    <li><a href="../pages/contact.html">Contact Us</a></li>
-                    <li><a href="../pages/shop.html">Special Offers</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <div class="social-row">
-                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-pinterest-p"></i></a>
+    <div class="container footer-grid">
+        <div>
+            <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
+                    <span>Roomstore</span>
                 </div>
-                <h4>Newsletter Info</h4>
-                <p>Subscribe to receive updates on new arrivals and special offers.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                    <input type="email" placeholder="Enter your email..." required />
-                    <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
-                </form>
-            </div>
+            </a>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
+            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
         </div>
-    </footer>
+        <div>
+            <h4>Department</h4>
+            <ul>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/shop.html">Showrooms</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="pages/shop.html">Living Room</a></li>
+                <li><a href="pages/shop.html">Bedroom</a></li>
+                <li><a href="pages/shop.html">Dining</a></li>
+                <li><a href="pages/shop.html">Appliances</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Support</h4>
+            <ul>
+                <li><a href="pages/contact.html">Contact Us</a></li>
+                <li><a href="pages/shop.html">Delivery &amp; Returns</a></li>
+                <li><a href="pages/login.html">My Account</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="social-row">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <h4>Newsletter</h4>
+            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Email address" required />
+                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
+            </form>
+        </div>
+    </div>
+</footer>
 
     <!-- Shared JavaScript Integration -->
-    <script src="js/main.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    renderFeatured('#featuredGrid', 4);
+});
+</script>
 </body>
 
 </html>

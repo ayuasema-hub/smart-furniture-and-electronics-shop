@@ -6,21 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard | Furniture Roomstore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/products.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/main.js" defer></script>
     <!-- Chart.js for Interactive Revenue & Category Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="admin-body">
+    <script>
+        // Demo-only client-side guard. Replace with server-side auth for production.
+        if (sessionStorage.getItem('fr_admin_logged_in') !== 'true') {
+            window.location.href = 'admin-login.html';
+        }
+    </script>
 
     <!-- ================= LEFT DARK SIDEBAR ================= -->
     <aside class="admin-sidebar">
         <div>
-            <a href="index.html" class="admin-brand">
+            <a href="../index.html" class="admin-brand">
                 <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
                 <div class="brand-text">
-                    <h1 style="color:#fff;">Furniture</h1>
-                    <span>Furniture</span>
+                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
+                    <span>Admin Panel</span>
                 </div>
             </a>
 
@@ -33,7 +42,7 @@
             </ul>
         </div>
 
-        <a href="login.html" class="admin-signout">
+        <a href="admin-login.html" class="admin-signout" onclick="sessionStorage.removeItem('fr_admin_logged_in');">
             <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
         </a>
     </aside>
@@ -160,7 +169,7 @@
                         <td><strong>Bonanee Furniture Set</strong></td>
                         <td>Amassa Kinin</td>
                         <td><span class="status-pill status-completed">completed</span></td>
-                        <td><strong>$200.00</strong></td>
+                        <td><strong>200.00 ETB</strong></td>
                         <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
                         </td>
                     </tr>
@@ -169,7 +178,7 @@
                         <td><strong>Tenmencare Armchair</strong></td>
                         <td>Aamssa Kinin</td>
                         <td><span class="status-pill status-canceled">canceled</span></td>
-                        <td><strong>$28.00</strong></td>
+                        <td><strong>28.00 ETB</strong></td>
                         <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
                         </td>
                     </tr>
@@ -178,7 +187,7 @@
                         <td><strong>Computer Furniture Desk</strong></td>
                         <td>Aamssa Kinin</td>
                         <td><span class="status-pill status-pending-blue">pending</span></td>
-                        <td><strong>$40.00</strong></td>
+                        <td><strong>40.00 ETB</strong></td>
                         <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
                         </td>
                     </tr>
@@ -187,7 +196,7 @@
                         <td><strong>Turonynans Sofa</strong></td>
                         <td>Ravam Bat</td>
                         <td><span class="status-pill status-pending-gold">pending</span></td>
-                        <td><strong>$200.00</strong></td>
+                        <td><strong>200.00 ETB</strong></td>
                         <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
                         </td>
                     </tr>
@@ -258,7 +267,6 @@
             }
         });
     </script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
