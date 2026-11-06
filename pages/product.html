@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redmont Backrest-Sofa | Furniture Roomstore</title>
+    <title>Product | Furniture Roomstore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/products.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/main.js" defer></script>
 </head>
 
 <body>
@@ -14,35 +17,33 @@
 
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                <div class="brand-text">
-                    <h1>Furniture</h1>
-                    <span>Roomstore</span>
-                </div>
-            </a>
-
-            <nav class="nav-links">
-                <a href="index.html">Furniture</a>
-                <a href="shop.html">Categories</a>
-                <a href="shop.html">Shop</a>
-                <a href="product.html" class="active">Deals</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="admin.html" class="btn-perspective">Free perspective</a>
-                <a href="login.html" class="nav-icon" style="font-size: 13px;">Sign in <i
-                        class="fa-regular fa-user"></i></a>
-                <a href="cart.html" class="nav-icon" title="Shopping Cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-badge" id="navCartBadge">3</span>
-                </a>
+    <div class="container nav-container">
+        <a href="../index.html" class="brand-logo">
+            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+            <div class="brand-text">
+                <h1>Furniture &amp; Appliances</h1>
+                <span>Roomstore</span>
             </div>
+        </a>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="product.html" class="active">Deals</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="login.html" class="btn-gold">Sign in</a>
+            <a href="cart.html" class="nav-icon" title="Shopping Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+            <a href="shop.html" class="nav-icon" title="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- ================= MAIN PRODUCT DETAIL SECTION ================= -->
     <section class="product-detail-section">
@@ -52,38 +53,15 @@
             <div>
                 <div class="main-gallery-img">
                     <!-- SWAP YOUR MAIN PRODUCT IMAGE HERE -->
-                    <img id="mainProductImg"
-                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80"
-                        alt="Redmont backrest-sofa">
+                    <img id="mainProductImg" src="" alt="Product">
                 </div>
-                <div class="thumbnail-row">
-                    <div class="thumb-item active"
-                        onclick="changeImage(this, 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80"
-                            alt="Thumb 1">
-                    </div>
-                    <div class="thumb-item"
-                        onclick="changeImage(this, 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=400&q=80"
-                            alt="Thumb 2">
-                    </div>
-                    <div class="thumb-item"
-                        onclick="changeImage(this, 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=400&q=80"
-                            alt="Thumb 3">
-                    </div>
-                    <div class="thumb-item"
-                        onclick="changeImage(this, 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80"
-                            alt="Thumb 4">
-                    </div>
-                </div>
+                <div class="thumbnail-row" id="thumbRow"></div>
             </div>
 
             <!-- Right: Product Details & Add to Cart Controls -->
             <div class="product-detail-info">
                 <p class="breadcrumb-tag">Product</p>
-                <h2 class="product-detail-title" id="productName">Redmont<br>backrest-sofa</h2>
+                <h2 class="product-detail-title" id="productName">Loading...</h2>
 
                 <div class="rating-row">
                     <div class="stars">
@@ -100,8 +78,9 @@
                     <span>ID: reviews</span>
                     <span>ID: D025103</span>
                 </div>
+                <p id="productDesc" style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:20px;"></p>
 
-                <div class="detail-price" id="productPriceVal">$1,250.00</div>
+                <div class="detail-price" id="productPriceVal">Loading...</div>
 
                 <label class="option-label">Color</label>
                 <div class="detail-swatches">
@@ -159,191 +138,121 @@
             </div>
         </div>
 
-        <div class="product-grid">
-            <!-- Related 1 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80"
-                        alt="Reluctuon armchair">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Reluctuon armchair</a>
-                    <i class="fa-regular fa-heart" style="color:var(--text-muted);"></i>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><strong style="color:var(--text-dark);">$1,500.00</strong> <span
-                            class="old-price">$1,650.00</span></div>
-                    <a href="#" class="action-circle"
-                        onclick="addProductToCart('Reluctuon armchair', 1500.00); return false;"><i
-                            class="fa-solid fa-cart-shopping" style="font-size:10px;"></i></a>
-                </div>
-            </div>
-
-            <!-- Related 2 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=600&q=80"
-                        alt="Balanbga Furniture">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Balanbga Furniture</a>
-                    <i class="fa-regular fa-heart" style="color:var(--text-muted);"></i>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><strong style="color:var(--text-dark);">$1,500.00</strong> <span
-                            class="old-price">$1,650.00</span></div>
-                    <a href="#" class="action-circle"
-                        onclick="addProductToCart('Balanbga Furniture', 1500.00); return false;"><i
-                            class="fa-solid fa-cart-shopping" style="font-size:10px;"></i></a>
-                </div>
-            </div>
-
-            <!-- Related 3 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
-                        alt="Rertuolur daybed">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Rertuolur armchair</a>
-                    <i class="fa-regular fa-heart" style="color:var(--text-muted);"></i>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><strong style="color:var(--text-dark);">$1,500.00</strong> <span
-                            class="old-price">$1,690.00</span></div>
-                    <a href="#" class="action-circle"
-                        onclick="addProductToCart('Rertuolur armchair', 1500.00); return false;"><i
-                            class="fa-solid fa-cart-shopping" style="font-size:10px;"></i></a>
-                </div>
-            </div>
-
-            <!-- Related 4 -->
-            <div class="product-card">
-                <a href="product.html" class="product-img-wrap" style="display:block;">
-                    <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=600&q=80"
-                        alt="Furnisure armchair">
-                </a>
-                <div class="product-info-top">
-                    <a href="product.html" class="product-title">Furnisure armchair</a>
-                    <i class="fa-regular fa-heart" style="color:var(--text-muted);"></i>
-                </div>
-                <div class="product-stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <div class="product-meta">
-                    <div><strong style="color:var(--text-dark);">$1,300.00</strong> <span
-                            class="old-price">$1,500.00</span></div>
-                    <a href="#" class="action-circle"
-                        onclick="addProductToCart('Furnisure armchair', 1300.00); return false;"><i
-                            class="fa-solid fa-cart-shopping" style="font-size:10px;"></i></a>
-                </div>
-            </div>
-        </div>
+        <div class="product-grid" id="relatedGrid"></div>
     </section>
 
     <!-- ================= SHARED FOOTER ================= -->
     <footer class="footer">
-        <div class="container footer-grid">
-            <div>
-                <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
-                    <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                    <div class="brand-text">
-                        <h1 style="color:#fff;">Furniture</h1>
-                        <span>Roomstore</span>
-                    </div>
-                </a>
-                <h4>Furniture</h4>
-                <p>Special profile<br>Elegant UI furniture store</p>
-            </div>
-            <div>
-                <h4>Department</h4>
-                <ul>
-                    <li><a href="about.html">Account</a></li>
-                    <li><a href="shop.html">Benefits</a></li>
-                    <li><a href="shop.html">Products</a></li>
-                    <li><a href="shop.html">Recent items</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="shop.html">Personalize</a></li>
-                    <li><a href="shop.html">Categories</a></li>
-                    <li><a href="contact.html">Contacts</a></li>
-                    <li><a href="login.html">Sign in</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>About us</h4>
-                <ul>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
-                    <li><a href="shop.html">Free perspectives</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="social-row">
-                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+    <div class="container footer-grid">
+        <div>
+            <a href="../index.html" class="brand-logo" style="margin-bottom: 16px;">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
+                    <span>Roomstore</span>
                 </div>
-                <h4>Newsletter</h4>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                    <input type="email" placeholder="Subscribe..." required />
-                    <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">→</button>
-                </form>
-            </div>
+            </a>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
+            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
         </div>
-    </footer>
+        <div>
+            <h4>Department</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Showrooms</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="shop.html">Living Room</a></li>
+                <li><a href="shop.html">Bedroom</a></li>
+                <li><a href="shop.html">Dining</a></li>
+                <li><a href="shop.html">Appliances</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="shop.html">Delivery &amp; Returns</a></li>
+                <li><a href="login.html">My Account</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="social-row">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <h4>Newsletter</h4>
+            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Email address" required />
+                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
+            </form>
+        </div>
+    </div>
+</footer>
 
-    <!-- Interactive Gallery, Quantity & Cart Script -->
     <script>
-        function changeImage(element, srcUrl) {
-            document.getElementById('mainProductImg').src = srcUrl;
-            document.querySelectorAll('.thumb-item').forEach(thumb => thumb.classList.remove('active'));
-            element.classList.add('active');
-        }
+let currentProduct = null;
+let currentQty = 1;
 
-        function selectSwatch(element) {
-            document.querySelectorAll('.detail-swatch').forEach(s => s.classList.remove('active'));
-            element.classList.add('active');
-        }
+function changeImage(element, srcUrl) {
+    document.getElementById('mainProductImg').src = srcUrl;
+    document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+    element.classList.add('active');
+}
 
-        function updateQty(change) {
-            const input = document.getElementById('qtyInput');
-            let current = parseInt(input.value) || 1;
-            current = Math.max(1, current + change);
-            input.value = current;
-        }
+function selectSwatch(element) {
+    document.querySelectorAll('.detail-swatch').forEach(s => s.classList.remove('active'));
+    element.classList.add('active');
+}
 
-        function addCurrentProductToCart() {
-            const name = document.getElementById('productName').innerText.replace(/\n/g, ' ');
-            const priceText = document.getElementById('productPriceVal').innerText.replace('$', '').replace(',', '');
-            const price = parseFloat(priceText);
-            const qty = parseInt(document.getElementById('qtyInput').value) || 1;
-            const imgSrc = document.getElementById('mainProductImg').src;
+function updateQty(change) {
+    currentQty = Math.max(1, currentQty + change);
+    document.getElementById('qtyInput').value = currentQty;
+}
 
-            // Add item multiple times based on quantity selected
-            for (let i = 0; i < qty; i++) {
-                addProductToCart(name, price, imgSrc);
-            }
-            window.location.href = 'cart.html';
-        }
-    </script>
-    <script src="js/main.js"></script>
+function addCurrentProductToCart() {
+    if (!currentProduct) return;
+    for (let i = 0; i < currentQty; i++) {
+        addProductToCart(currentProduct.id, currentProduct.name, currentProduct.price, currentProduct.image);
+    }
+    window.location.href = 'cart.html';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const id = new URLSearchParams(window.location.search).get('id');
+    currentProduct = getProductById(id) || PRODUCTS[0];
+    currentQty = 1;
+    document.getElementById('qtyInput').value = 1;
+
+    document.title = currentProduct.name + ' | Furniture Roomstore';
+    document.getElementById('productName').textContent = currentProduct.name;
+    document.getElementById('productPriceVal').textContent = formatETB(currentProduct.price);
+    document.getElementById('productDesc').textContent = currentProduct.description;
+
+    const thumbRow = document.getElementById('thumbRow');
+    const gallery = (currentProduct.images && currentProduct.images.length) ? currentProduct.images : [currentProduct.image];
+    document.getElementById('mainProductImg').src = gallery[0];
+    gallery.forEach((src, i) => {
+        const t = document.createElement('div');
+        t.className = 'thumb-item' + (i === 0 ? ' active' : '');
+        t.onclick = function () { changeImage(t, src); };
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = currentProduct.name + ' view ' + (i + 1);
+        t.appendChild(img);
+        thumbRow.appendChild(t);
+    });
+
+    renderRelated('#relatedGrid', currentProduct.id, 4);
+});
+</script>
 </body>
 
 </html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Furniture Roomstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/products.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+    <div class="container nav-container">
+        <a href="../index.html" class="brand-logo">
+            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+            <div class="brand-text">
+                <h1>Furniture &amp; Appliances</h1>
+                <span>Roomstore</span>
+            </div>
+        </a>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="product.html">Deals</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="login.html" class="btn-gold">Sign in</a>
+            <a href="cart.html" class="nav-icon" title="Shopping Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+            <a href="shop.html" class="nav-icon" title="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <main class="cart-page-wrapper">
+        <div class="container">
+            <h2 class="cart-page-title">Checkout</h2>
+            <div class="cart-layout">
+                <div>
+                    <div class="cart-items-card" style="margin-bottom:24px;">
+                        <h3 style="margin-bottom:16px;">Delivery Details</h3>
+                        <div class="form-control-group"><input type="text" id="ckName" class="form-input" placeholder="Full Name" required></div>
+                        <div class="form-control-group"><input type="tel" id="ckPhone" class="form-input" placeholder="+251 9XX XXX XXX" required></div>
+                        <div class="form-control-group">
+                            <select id="ckCity" class="form-input" onchange="updateCheckoutTotals()">
+                                <option value="Addis Ababa">Addis Ababa</option>
+                                <option value="Adama">Adama</option>
+                                <option value="Hawassa">Hawassa</option>
+                                <option value="Bahir Dar">Bahir Dar</option>
+                                <option value="Mekelle">Mekelle</option>
+                            </select>
+                        </div>
+                        <div class="form-control-group"><textarea id="ckAddress" class="form-textarea" placeholder="Delivery Address" required></textarea></div>
+                        <div class="form-control-group"><textarea id="ckNotes" class="form-textarea" placeholder="Order Notes (optional)" style="height:70px;"></textarea></div>
+                    </div>
+                    <div class="cart-items-card">
+                        <h3 style="margin-bottom:16px;">Payment Method</h3>
+                        <label class="checkbox-label" style="margin-bottom:10px;"><input type="radio" name="payMethod" value="telebirr" checked> Telebirr</label>
+                        <label class="checkbox-label" style="margin-bottom:10px;"><input type="radio" name="payMethod" value="cbebirr"> CBE Birr</label>
+                        <label class="checkbox-label"><input type="radio" name="payMethod" value="cod"> Cash on Delivery</label>
+                    </div>
+                </div>
+                <aside class="order-summary-card">
+                    <h3>Order Summary</h3>
+                    <div id="ckSummaryItems" style="margin-bottom:16px; font-size:13px; color:var(--text-muted);"></div>
+                    <div class="summary-line"><span>Subtotal</span><strong id="ckSubtotal">0 ETB</strong></div>
+                    <div class="summary-line"><span>Delivery</span><strong id="ckDelivery">0 ETB</strong></div>
+                    <div class="summary-total"><span>Total:</span><span id="ckTotal">0 ETB</span></div>
+                    <button type="button" class="btn-checkout-gold" onclick="placeOrder()">Place Order</button>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+    <div class="container footer-grid">
+        <div>
+            <a href="../index.html" class="brand-logo" style="margin-bottom: 16px;">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
+                    <span>Roomstore</span>
+                </div>
+            </a>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
+            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
+        </div>
+        <div>
+            <h4>Department</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Showrooms</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="shop.html">Living Room</a></li>
+                <li><a href="shop.html">Bedroom</a></li>
+                <li><a href="shop.html">Dining</a></li>
+                <li><a href="shop.html">Appliances</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="shop.html">Delivery &amp; Returns</a></li>
+                <li><a href="login.html">My Account</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="social-row">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <h4>Newsletter</h4>
+            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Email address" required />
+                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
+            </form>
+        </div>
+    </div>
+</footer>
+    <script>
+        function renderCheckout() {
+            const cart = getCart();
+            const container = document.getElementById('ckSummaryItems');
+            container.replaceChildren();
+            cart.forEach(item => {
+                const row = document.createElement('div');
+                row.style.cssText = 'display:flex;justify-content:space-between;margin-bottom:6px;';
+                const name = document.createElement('span');
+                name.textContent = `${item.name} × ${item.qty}`;
+                const price = document.createElement('span');
+                price.textContent = formatETB(item.price * item.qty);
+                row.append(name, price);
+                container.appendChild(row);
+            });
+            updateCheckoutTotals();
+        }
+
+        function updateCheckoutTotals() {
+            const cart = getCart();
+            const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+            const city = document.getElementById('ckCity') ? document.getElementById('ckCity').value : 'Addis Ababa';
+            const delivery = city === 'Addis Ababa' ? 0 : 250;
+            document.getElementById('ckSubtotal').textContent = formatETB(subtotal);
+            document.getElementById('ckDelivery').textContent = formatETB(delivery);
+            document.getElementById('ckTotal').textContent = formatETB(subtotal + delivery);
+        }
+
+        function placeOrder() {
+            const name = document.getElementById('ckName').value.trim();
+            const phone = document.getElementById('ckPhone').value.trim();
+            if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+            const method = document.querySelector('input[name="payMethod"]:checked').value;
+            const orderId = 'FR-' + Date.now().toString().slice(-8);
+            sessionStorage.setItem('fr_last_order_id', orderId);
+            const methodLabel = method === 'telebirr' ? 'Telebirr' : method === 'cbebirr' ? 'CBE Birr' : 'Cash on Delivery';
+            alert(`Order ${orderId} placed!\nPayment: ${methodLabel}\nYou will receive a confirmation on ${phone}.`);
+            saveCart([]);
+            setTimeout(() => { window.location.href = 'order-success.html'; }, 1500);
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCheckout);
+    </script>
+</body>
+
+</html>

@@ -6,40 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart | Furniture Roomstore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/products.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/main.js" defer></script>
 </head>
 
 <body>
 
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-circle"><i class="fa-solid fa-leaf"></i></div>
-                <div class="brand-text">
-                    <h1>Furniture</h1>
-                </div>
-            </a>
-
-            <nav class="nav-links">
-                <a href="shop.html">Categories</a>
-                <a href="shop.html">Shop</a>
-                <a href="product.html">Deals</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="admin.html" class="btn-perspective" style="color: var(--gold);">Free perspective</a>
-                <a href="login.html" class="nav-icon" style="font-size: 13px;">Sign in <i
-                        class="fa-regular fa-user"></i></a>
-                <a href="cart.html" class="nav-icon" title="Shopping Cart">
-                    <i class="fa-solid fa-cart-shopping" style="color: var(--gold);"></i>
-                    <span class="cart-badge" id="cartBadge">3</span>
-                </a>
+    <div class="container nav-container">
+        <a href="../index.html" class="brand-logo">
+            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+            <div class="brand-text">
+                <h1>Furniture &amp; Appliances</h1>
+                <span>Roomstore</span>
             </div>
+        </a>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="product.html">Deals</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="login.html" class="btn-gold">Sign in</a>
+            <a href="cart.html" class="nav-icon" title="Shopping Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+            <a href="shop.html" class="nav-icon" title="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- ================= SHOPPING CART MAIN SECTION ================= -->
     <main class="cart-page-wrapper">
@@ -56,84 +59,6 @@
                             <span>Price</span>
                             <span>Qty</span>
                             <span style="text-align: right;">Subtotal</span>
-                        </div>
-
-                        <!-- Cart Item 1 -->
-                        <div class="cart-item-row" data-price="24.50">
-                            <div class="cart-thumb">
-                                <!-- SWAP YOUR IMAGE HERE -->
-                                <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=400&q=80"
-                                    alt="Mondino armchair">
-                            </div>
-                            <div class="cart-item-details">
-                                <h4>Mondino armchair</h4>
-                                <span class="gold-price">$24.50</span>
-                                <div class="strike-row">$24.50 <span>$29.50</span></div>
-                            </div>
-                            <div></div>
-                            <div>
-                                <div class="cart-qty-pill">
-                                    <button type="button" onclick="changeCartQty(this, -1)">−</button>
-                                    <span class="item-qty">1</span>
-                                    <button type="button" onclick="changeCartQty(this, 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="cart-subtotal-col">
-                                <span class="remove-link" onclick="removeCartItem(this)">Remove</span>
-                                <span class="item-subtotal-val">$24.50</span>
-                            </div>
-                        </div>
-
-                        <!-- Cart Item 2 -->
-                        <div class="cart-item-row" data-price="94.00">
-                            <div class="cart-thumb">
-                                <!-- SWAP YOUR IMAGE HERE -->
-                                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80"
-                                    alt="Elenora bed">
-                            </div>
-                            <div class="cart-item-details">
-                                <h4>Elenora bed</h4>
-                                <span class="gold-price">$94.00</span>
-                                <div class="strike-row">$94.00 <span>$124.50</span></div>
-                            </div>
-                            <div></div>
-                            <div>
-                                <div class="cart-qty-pill">
-                                    <button type="button" onclick="changeCartQty(this, -1)">−</button>
-                                    <span class="item-qty">1</span>
-                                    <button type="button" onclick="changeCartQty(this, 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="cart-subtotal-col">
-                                <span class="remove-link" onclick="removeCartItem(this)">Remove</span>
-                                <span class="item-subtotal-val">$94.00</span>
-                            </div>
-                        </div>
-
-                        <!-- Cart Item 3 -->
-                        <div class="cart-item-row" data-price="24.00">
-                            <div class="cart-thumb">
-                                <!-- SWAP YOUR IMAGE HERE -->
-                                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=400&q=80"
-                                    alt="Furnase armchair">
-                            </div>
-                            <div class="cart-item-details">
-                                <h4>Furnase armchair</h4>
-                                <span class="gold-price">$24.00</span>
-                                <div class="strike-row">$24.00 <span>$54.50</span></div>
-                            </div>
-                            <div></div>
-                            <div>
-                                <div class="cart-qty-pill">
-                                    <button type="button" onclick="changeCartQty(this, -1)">−</button>
-                                    <span class="item-qty">1</span>
-                                    <button type="button" onclick="changeCartQty(this, 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="cart-subtotal-col">
-                                <span class="remove-link" onclick="removeCartItem(this)">Remove</span>
-                                <span class="item-subtotal-val">$24.00</span>
-                            </div>
                         </div>
                     </div>
 
@@ -152,20 +77,20 @@
 
                     <div class="summary-line">
                         <span>Subtotal</span>
-                        <strong id="summarySubtotal">$142.50</strong>
+                        <strong id="summarySubtotal">142.50 ETB</strong>
                     </div>
                     <div class="summary-line">
                         <span>Est. Shipping</span>
-                        <strong>$0.00</strong>
+                        <strong>0.00 ETB</strong>
                     </div>
                     <div class="summary-line">
                         <span>Est. Tax</span>
-                        <strong>$0.00</strong>
+                        <strong>0.00 ETB</strong>
                     </div>
 
                     <div class="summary-total">
                         <span>Estimated Total:</span>
-                        <span id="summaryTotal">$142.50</span>
+                        <span id="summaryTotal">142.50 ETB</span>
                     </div>
 
                     <button type="button" class="btn-checkout-gold" onclick="proceedToCheckout()">
@@ -204,104 +129,169 @@
 
     <!-- ================= SHARED FOOTER ================= -->
     <footer class="footer">
-        <div class="container footer-grid">
-            <div>
-                <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
-                    <div class="logo-circle"><i class="fa-solid fa-leaf"></i></div>
-                    <div class="brand-text">
-                        <h1 style="color:#fff;">Furniture</h1>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <h4>Department</h4>
-                <ul>
-                    <li><a href="shop.html">Recents</a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="shop.html">Resource</a></li>
-                    <li><a href="contact.html">24/7 Support</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="shop.html">Accessibility</a></li>
-                    <li><a href="shop.html">Promotions</a></li>
-                    <li><a href="contact.html">Contacts</a></li>
-                    <li><a href="login.html">Log In</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>About us</h4>
-                <ul>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
-                    <li><a href="shop.html">Terms &amp; Service</a></li>
-                </ul>
-            </div>
-            <div>
-                <div class="social-row">
-                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+    <div class="container footer-grid">
+        <div>
+            <a href="../index.html" class="brand-logo" style="margin-bottom: 16px;">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
+                    <span>Roomstore</span>
                 </div>
-                <h4>Newsletter / Email address</h4>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                    <input type="email" placeholder="Email newsletter" required />
-                    <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">→</button>
-                </form>
-            </div>
+            </a>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
+            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
         </div>
-    </footer>
+        <div>
+            <h4>Department</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Showrooms</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="shop.html">Living Room</a></li>
+                <li><a href="shop.html">Bedroom</a></li>
+                <li><a href="shop.html">Dining</a></li>
+                <li><a href="shop.html">Appliances</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="shop.html">Delivery &amp; Returns</a></li>
+                <li><a href="login.html">My Account</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="social-row">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <h4>Newsletter</h4>
+            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Email address" required />
+                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
+            </form>
+        </div>
+    </div>
+</footer>
 
-    <!-- Live Cart Calculation & Shared Script -->
     <script>
-        function recalculateCart() {
-            const rows = document.querySelectorAll('.cart-item-row');
-            let total = 0;
-            let totalItems = 0;
-
-            rows.forEach(row => {
-                const price = parseFloat(row.getAttribute('data-price'));
-                const qty = parseInt(row.querySelector('.item-qty').innerText);
-                const subtotal = price * qty;
-                row.querySelector('.item-subtotal-val').innerText = '$' + subtotal.toFixed(2);
-                total += subtotal;
-                totalItems += qty;
-            });
-
-            document.getElementById('summarySubtotal').innerText = '$' + total.toFixed(2);
-            document.getElementById('summaryTotal').innerText = '$' + total.toFixed(2);
-            document.getElementById('cartBadge').innerText = totalItems;
+        function makeCartElement(tag, className, text) {
+            const element = document.createElement(tag);
+            if (className) element.className = className;
+            if (text !== undefined) element.textContent = text;
+            return element;
         }
 
-        function changeCartQty(btn, delta) {
-            const qtySpan = btn.parentElement.querySelector('.item-qty');
-            let currentQty = parseInt(qtySpan.innerText);
-            currentQty = Math.max(1, currentQty + delta);
-            qtySpan.innerText = currentQty;
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById('cartItemsContainer');
+            container.querySelectorAll('.cart-item-row, .cart-empty-msg').forEach(row => row.remove());
+
+            if (cart.length === 0) {
+                container.appendChild(makeCartElement('div', 'cart-empty-msg', 'Your cart is empty.'));
+                document.getElementById('summarySubtotal').innerText = formatETB(0);
+                document.getElementById('summaryTotal').innerText = formatETB(0);
+                document.querySelectorAll('.cart-badge').forEach(badge => badge.innerText = '0');
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const price = Number(item.price);
+                const quantity = Number(item.qty);
+                const row = makeCartElement('div', 'cart-item-row');
+                row.dataset.price = price;
+                row.dataset.index = index;
+
+                const thumbnail = makeCartElement('div', 'cart-thumb');
+                const image = document.createElement('img');
+                const imageUrl = typeof item.image === 'string' ? item.image : '';
+                image.src = imageUrl.startsWith('https://') || imageUrl.startsWith('http://') ? imageUrl : '';
+                image.alt = String(item.name);
+                thumbnail.appendChild(image);
+
+                const details = makeCartElement('div', 'cart-item-details');
+                details.appendChild(makeCartElement('h4', '', item.name));
+                details.appendChild(makeCartElement('span', 'gold-price', formatETB(price)));
+
+                const spacer = document.createElement('div');
+                const quantityColumn = document.createElement('div');
+                const quantityPill = makeCartElement('div', 'cart-qty-pill');
+                const decrement = makeCartElement('button', '', '-');
+                decrement.type = 'button';
+                decrement.onclick = () => changeCartQty(decrement, -1);
+                const quantityLabel = makeCartElement('span', 'item-qty', String(quantity));
+                const increment = makeCartElement('button', '', '+');
+                increment.type = 'button';
+                increment.onclick = () => changeCartQty(increment, 1);
+                quantityPill.append(decrement, quantityLabel, increment);
+                quantityColumn.appendChild(quantityPill);
+
+                const subtotalColumn = makeCartElement('div', 'cart-subtotal-col');
+                const remove = makeCartElement('span', 'remove-link', 'Remove');
+                remove.onclick = () => removeCartItem(remove);
+                subtotalColumn.append(remove, makeCartElement('span', 'item-subtotal-val', formatETB(price * quantity)));
+                row.append(thumbnail, details, spacer, quantityColumn, subtotalColumn);
+                container.appendChild(row);
+            });
             recalculateCart();
+        }
+
+        function recalculateCart() {
+            let total = 0;
+            let totalItems = 0;
+            document.querySelectorAll('.cart-item-row').forEach(row => {
+                const price = Number(row.dataset.price);
+                const quantity = Number(row.querySelector('.item-qty').innerText);
+                const subtotal = price * quantity;
+                row.querySelector('.item-subtotal-val').innerText = formatETB(subtotal);
+                total += subtotal;
+                totalItems += quantity;
+            });
+            document.getElementById('summarySubtotal').innerText = formatETB(total);
+            document.getElementById('summaryTotal').innerText = formatETB(total);
+            document.querySelectorAll('.cart-badge').forEach(badge => badge.innerText = totalItems);
+        }
+
+        function changeCartQty(button, delta) {
+            const row = button.closest('.cart-item-row');
+            const index = Number(row.dataset.index);
+            const cart = getCart();
+            if (!cart[index]) return;
+            cart[index].qty = Math.max(1, Number(cart[index].qty) + delta);
+            saveCart(cart);
+            renderCart();
         }
 
         function removeCartItem(link) {
             const row = link.closest('.cart-item-row');
-            row.remove();
-            recalculateCart();
+            const cart = getCart();
+            cart.splice(Number(row.dataset.index), 1);
+            saveCart(cart);
+            renderCart();
         }
 
         function clearAllItems() {
-            document.querySelectorAll('.cart-item-row').forEach(r => r.remove());
-            recalculateCart();
+            if (!confirm('Clear all items from your cart?')) return;
+            saveCart([]);
+            renderCart();
         }
 
         function proceedToCheckout() {
-            const total = document.getElementById('summaryTotal').innerText;
-            alert('Order confirmed for ' + total + '! Redirecting to Admin Dashboard to view the order.');
-            window.location.href = 'admin.html';
+            if (getCart().length === 0) { alert('Your cart is empty.'); return; }
+            window.location.href = 'checkout.html';
         }
+
+        document.addEventListener('DOMContentLoaded', renderCart);
     </script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>

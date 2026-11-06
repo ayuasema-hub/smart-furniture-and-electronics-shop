@@ -6,41 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us | Furniture Roomstore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/products.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/main.js" defer></script>
 </head>
 
 <body>
 
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-circle"><i class="fa-solid fa-leaf"></i></div>
-                <div class="brand-text">
-                    <h1>Furniture</h1>
-                </div>
-            </a>
-
-            <nav class="nav-links">
-                <a href="index.html">Furniture</a>
-                <a href="shop.html">Categories</a>
-                <a href="shop.html">Shop</a>
-                <a href="product.html">Deals</a>
-                <a href="about.html" class="active">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="admin.html" class="btn-perspective" style="color: var(--gold);">Free perspective</a>
-                <a href="login.html" class="nav-icon" style="font-size: 13px;">Sign in <i
-                        class="fa-regular fa-user"></i></a>
-                <a href="cart.html" class="nav-icon" title="Shopping Cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-badge">3</span>
-                </a>
+    <div class="container nav-container">
+        <a href="../index.html" class="brand-logo">
+            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+            <div class="brand-text">
+                <h1>Furniture &amp; Appliances</h1>
+                <span>Roomstore</span>
             </div>
+        </a>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="product.html">Deals</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="login.html" class="btn-gold">Sign in</a>
+            <a href="cart.html" class="nav-icon" title="Shopping Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+            <a href="shop.html" class="nav-icon" title="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- ================= ABOUT US MAIN CONTENT ================= -->
     <main class="container">
@@ -55,7 +57,7 @@
             <div class="about-promo-card">
                 <span class="script-tag">Premium Furniture</span>
                 <h2>Discover elegance and comfort like never before</h2>
-                <a href="shop.html" class="btn-gold" style="padding: 10px 24px;">Discover more</a>
+                <a href="shop.html?category=sofa" class="btn-gold" style="padding: 10px 24px;">Discover more</a>
             </div>
         </section>
 
@@ -120,71 +122,61 @@
 
     <!-- ================= SHARED FOOTER ================= -->
     <footer class="footer">
-        <div class="container footer-grid">
-            <div>
-                <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
-                    <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                    <div class="brand-text">
-                        <h1 style="color:#fff;">Furniture</h1>
-                        <span>Roomstore</span>
-                    </div>
-                </a>
-                <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot"
-                        style="color:var(--gold); width:18px;"></i> Example str 25, 1000</p>
-                <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i>
-                    +1234567890</p>
-                <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furniture.com</p>
-            </div>
-
-            <div>
-                <h4>Department</h4>
-                <ul>
-                    <li><a href="shop.html">Resource</a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="shop.html">Recent items</a></li>
-                    <li><a href="contact.html">FAQs</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Categories</h4>
-                <ul>
-                    <li><a href="shop.html">Personalize</a></li>
-                    <li><a href="shop.html">Categories</a></li>
-                    <li><a href="about.html">Partners</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>About us</h4>
-                <ul>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
-                    <li><a href="shop.html">Free perspectives</a></li>
-                    <li><a href="shop.html">Sites showroom</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <div class="social-row">
-                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+    <div class="container footer-grid">
+        <div>
+            <a href="../index.html" class="brand-logo" style="margin-bottom: 16px;">
+                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
+                <div class="brand-text">
+                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
+                    <span>Roomstore</span>
                 </div>
-                <h4>Newsletter / Email address</h4>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                    <input type="email" placeholder="Email newsletter" required />
-                    <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">→</button>
-                </form>
-            </div>
+            </a>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
+            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
+            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
         </div>
-    </footer>
+        <div>
+            <h4>Department</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Showrooms</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="shop.html">Living Room</a></li>
+                <li><a href="shop.html">Bedroom</a></li>
+                <li><a href="shop.html">Dining</a></li>
+                <li><a href="shop.html">Appliances</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="shop.html">Delivery &amp; Returns</a></li>
+                <li><a href="login.html">My Account</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="social-row">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <h4>Newsletter</h4>
+            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" placeholder="Email address" required />
+                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
+            </form>
+        </div>
+    </div>
+</footer>
 
     <!-- Shared JavaScript Integration -->
-    <script src="js/main.js"></script>
 </body>
 
 </html>
