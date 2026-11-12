@@ -10,8 +10,6 @@
     <script src="../js/products.js" defer></script>
     <script src="../js/render.js" defer></script>
     <script src="../js/main.js" defer></script>
-    <!-- Chart.js for Interactive Revenue & Category Charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="admin-body">
@@ -28,17 +26,16 @@
             <a href="../index.html" class="admin-brand">
                 <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
                 <div class="brand-text">
-                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
+                    <span class="admin-brand-title">Furniture &amp; Appliances</span>
                     <span>Admin Panel</span>
                 </div>
             </a>
 
             <ul class="admin-menu">
                 <li><a href="admin.html" class="active"><i class="fa-solid fa-table-columns"></i> Dashboard</a></li>
-                <li><a href="shop.html"><i class="fa-solid fa-cube"></i> Products</a></li>
-                <li><a href="cart.html"><i class="fa-solid fa-dollar-sign"></i> Sales</a></li>
-                <li><a href="about.html"><i class="fa-solid fa-user-group"></i> Customers</a></li>
-                <li><a href="contact.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                <li><a href="shop.html"><i class="fa-solid fa-cube"></i> Product catalogue</a></li>
+                <li><a href="#orders"><i class="fa-solid fa-receipt"></i> Orders (demo)</a></li>
+                <li><a href="../index.html"><i class="fa-solid fa-store"></i> Storefront</a></li>
             </ul>
         </div>
 
@@ -49,6 +46,9 @@
 
     <!-- ================= RIGHT MAIN WORKSPACE ================= -->
     <main class="admin-main">
+
+        <h1 class="admin-page-title">Admin dashboard</h1>
+        <p class="admin-demo-banner">Frontend demonstration only. Dashboard figures are catalogue counts; no sales, customer, or order records are connected. This page is not secured by its sessionStorage guard.</p>
 
         <!-- Top Search & Admin Profile Bar -->
         <header class="admin-topbar">
@@ -71,11 +71,11 @@
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
                     <div class="kpi-info">
-                        <span>Total Sales</span>
-                        <strong>320,000</strong>
+                        <span>Catalogue Products</span>
+                        <strong id="adminProductCount">0</strong>
                     </div>
                 </div>
-                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +12%</span>
+                <span class="kpi-trend">Catalogue</span>
             </div>
 
             <div class="kpi-card">
@@ -84,12 +84,11 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
                     <div class="kpi-info">
-                        <span>Orders</span>
-                        <strong>2,020</strong>
+                        <span>Furniture</span>
+                        <strong id="adminFurnitureCount">0</strong>
                     </div>
                 </div>
-                <span class="kpi-trend" style="background:#FDE8E8; color:#C0392B;"><i
-                        class="fa-solid fa-arrow-trend-up"></i> +5%</span>
+                <span class="kpi-trend" style="background:#FDE8E8; color:#C0392B;">Products</span>
             </div>
 
             <div class="kpi-card">
@@ -98,11 +97,11 @@
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div class="kpi-info">
-                        <span>Visitors</span>
-                        <strong>15,300</strong>
+                        <span>Electronics</span>
+                        <strong id="adminElectronicsCount">0</strong>
                     </div>
                 </div>
-                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +18%</span>
+                <span class="kpi-trend">Products</span>
             </div>
 
             <div class="kpi-card">
@@ -111,51 +110,30 @@
                         <i class="fa-solid fa-user-check"></i>
                     </div>
                     <div class="kpi-info">
-                        <span>Active Users</span>
-                        <strong>1,250</strong>
+                        <span>Order Records</span>
+                        <strong>Not connected</strong>
                     </div>
                 </div>
-                <span class="kpi-trend" style="background:#E3EEFF; color:#2563EB;"><i
-                        class="fa-solid fa-arrow-trend-up"></i> +8%</span>
+                <span class="kpi-trend" style="background:#E3EEFF; color:#2563EB;">Demo</span>
             </div>
         </section>
 
-        <!-- Charts Section: Overall Revenue Line Chart + Sales Categories Bar Chart -->
-        <section class="charts-grid">
-            <div class="chart-card">
-                <div class="chart-card-header">
-                    <div>
-                        <h3>Overall Revenue</h3>
-                        <p>Performance in time counts</p>
-                    </div>
-                    <span class="pill-btn">30+ days</span>
-                </div>
-                <canvas id="revenueChart" height="115"></canvas>
-            </div>
-
-            <div class="chart-card">
-                <div class="chart-card-header">
-                    <div>
-                        <h3>Sales Categories</h3>
-                        <p>Sales by category</p>
-                    </div>
-                    <span class="pill-btn"><i class="fa-solid fa-chart-column"></i></span>
-                </div>
-                <canvas id="categoryChart" height="215"></canvas>
-            </div>
+        <section class="chart-card inventory-card">
+            <div class="chart-card-header"><div><h2>Catalogue overview</h2><p>Counts derived from the local product catalogue.</p></div></div>
+            <div id="catalogOverview" class="inventory-overview"></div>
         </section>
 
         <!-- Bottom Recent Orders Table -->
-        <section class="orders-card">
+        <section class="orders-card" id="orders">
             <div class="chart-card-header" style="margin-bottom: 6px;">
-                <h3>Recent Orders</h3>
-                <a href="shop.html" style="font-size: 13px; color: var(--text-muted);">Show Orders</a>
+                <h2>Orders</h2>
+                <span style="font-size: 13px; color: var(--text-muted);">No order system connected</span>
             </div>
 
             <table class="orders-table">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" /> Order ID ↓</th>
+                        <th>Order ID</th>
                         <th>Product</th>
                         <th>Customer Name</th>
                         <th>Status</th>
@@ -164,107 +142,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" /> 20295780003</td>
-                        <td><strong>Bonanee Furniture Set</strong></td>
-                        <td>Amassa Kinin</td>
-                        <td><span class="status-pill status-completed">completed</span></td>
-                        <td><strong>200.00 ETB</strong></td>
-                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" /> 20295790008</td>
-                        <td><strong>Tenmencare Armchair</strong></td>
-                        <td>Aamssa Kinin</td>
-                        <td><span class="status-pill status-canceled">canceled</span></td>
-                        <td><strong>28.00 ETB</strong></td>
-                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" /> 2029570001</td>
-                        <td><strong>Computer Furniture Desk</strong></td>
-                        <td>Aamssa Kinin</td>
-                        <td><span class="status-pill status-pending-blue">pending</span></td>
-                        <td><strong>40.00 ETB</strong></td>
-                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" /> 2029570009</td>
-                        <td><strong>Turonynans Sofa</strong></td>
-                        <td>Ravam Bat</td>
-                        <td><span class="status-pill status-pending-gold">pending</span></td>
-                        <td><strong>200.00 ETB</strong></td>
-                        <td><i class="fa-solid fa-chevron-down" style="font-size:11px; color:var(--text-muted);"></i>
-                        </td>
-                    </tr>
+                    <tr><td colspan="6">No orders are stored in this frontend demonstration.</td></tr>
                 </tbody>
             </table>
         </section>
 
     </main>
 
-    <!-- Chart.js Configuration & Shared Script Integration -->
     <script>
-        const revCtx = document.getElementById('revenueChart').getContext('2d');
-        const gradient = revCtx.createLinearGradient(0, 0, 0, 240);
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.32)');
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+        document.addEventListener('DOMContentLoaded', () => {
+            const furnitureCount = PRODUCTS.filter(product => getProductDepartment(product) === 'furniture').length;
+            const electronicsCount = PRODUCTS.length - furnitureCount;
+            document.getElementById('adminProductCount').textContent = String(PRODUCTS.length);
+            document.getElementById('adminFurnitureCount').textContent = String(furnitureCount);
+            document.getElementById('adminElectronicsCount').textContent = String(electronicsCount);
 
-        new Chart(revCtx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-                datasets: [{
-                    label: 'Revenue ($)',
-                    data: [25, 115, 35, 195, 55, 160, 198],
-                    borderColor: '#3B76D6',
-                    backgroundColor: gradient,
-                    borderWidth: 2.5,
-                    fill: true,
-                    tension: 0.42,
-                    pointBackgroundColor: '#3B76D6',
-                    pointRadius: 4
-                }]
-            },
-            options: {
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { beginAtZero: true, max: 240, ticks: { callback: v => '$' + v } },
-                    x: { grid: { display: false } }
-                }
-            }
-        });
-
-        const catCtx = document.getElementById('categoryChart').getContext('2d');
-        new Chart(catCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Apr', 'May', 'Jun', 'Jul', 'Sep', 'Dec'],
-                datasets: [
-                    {
-                        label: 'Indoor',
-                        data: [130, 155, 245, 280, 200, 305],
-                        backgroundColor: '#4A80D4',
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'Outdoor',
-                        data: [110, 215, 180, 330, 235, 335],
-                        backgroundColor: '#CEAA66',
-                        borderRadius: 4
-                    }
-                ]
-            },
-            options: {
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { beginAtZero: true, max: 400 },
-                    x: { grid: { display: false } }
-                }
-            }
+            const counts = PRODUCTS.reduce((result, product) => {
+                result[product.category] = (result[product.category] || 0) + 1;
+                return result;
+            }, {});
+            const overview = document.getElementById('catalogOverview');
+            Object.entries(counts).forEach(([category, count]) => {
+                const row = document.createElement('div');
+                row.className = 'inventory-row';
+                const label = document.createElement('span');
+                label.textContent = category;
+                const bar = document.createElement('span');
+                bar.className = 'inventory-bar';
+                bar.style.width = `${Math.max(4, count / PRODUCTS.length * 100)}%`;
+                const value = document.createElement('strong');
+                value.textContent = String(count);
+                row.append(label, bar, value);
+                overview.appendChild(row);
+            });
         });
     </script>
 </body>

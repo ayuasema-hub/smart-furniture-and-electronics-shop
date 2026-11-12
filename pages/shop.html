@@ -44,45 +44,52 @@
     </div>
 </header>
 
+    <main>
     <!-- ================= SHOP HERO BANNER ================= -->
     <section class="shop-hero">
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-title" style="margin-bottom: 18px;">
-                    <strong>Forest comfort</strong><br>
-                    <span style="font-weight: 300;">Exclusive collections.</span>
-                </h2>
-                <a href="#catalog" class="btn-gold" style="padding: 10px 26px;">Find local</a>
+                <h1 class="hero-title" style="margin-bottom: 18px;">Furniture &amp; electronics</h1>
+                <p class="hero-desc">Explore the products in our current collection.</p>
+                <a href="#catalog" class="btn-gold" style="padding: 10px 26px;">Browse products</a>
             </div>
         </div>
     </section>
 
     <!-- ================= TOOLBAR & CATALOG LAYOUT ================= -->
-    <main class="container" id="catalog">
+    <div class="container" id="catalog">
+        <nav class="shop-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span>Shop</span></nav>
+        <div class="catalog-heading"><div><h2 id="catalogTitle">Shop all products</h2><p id="catalogDescription">Browse furniture and electronics from the current product catalogue.</p></div><span id="shopResultCount" aria-live="polite">100 products</span></div>
         <!-- Top Search & View Bar -->
         <div class="shop-toolbar">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search here" oninput="applyShopFilters()" />
+                <input type="search" id="searchInput" placeholder="Search products" oninput="applyShopFilters()" aria-label="Search products" />
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
 
             <div class="toolbar-controls">
-                <button class="icon-toggle"><i class="fa-solid fa-sliders"></i></button>
-                <button class="icon-toggle active"><i class="fa-solid fa-grip"></i></button>
-                <button class="icon-toggle"><i class="fa-solid fa-list"></i></button>
+                <button type="button" class="filter-open-button" id="filterOpenButton" aria-controls="filterSidebar" aria-expanded="false"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filters</button>
                 <select class="sort-select" id="sortSelect" onchange="applyShopFilters()">
                     <option value="featured">Featured</option>
                     <option value="price-low">Price: Low to High</option>
                     <option value="price-high">Price: High to Low</option>
-                    <option value="rating">Top Rated</option>
+                    <option value="newest">Newest</option>
                 </select>
             </div>
         </div>
+        <div id="activeFilters" class="active-filters" aria-live="polite"></div>
 
         <!-- Sidebar + 4x3 Product Grid -->
         <div class="shop-layout">
             <!-- Left Sidebar Filters -->
-            <aside class="filter-sidebar">
+            <aside class="filter-sidebar" id="filterSidebar" aria-label="Product filters">
+    <div class="filter-group">
+        <div class="filter-header"><span>Department</span><i class="fa-solid fa-chevron-up" style="font-size:12px;"></i></div>
+        <ul class="filter-list">
+            <li><label class="checkbox-label"><input type="checkbox" data-filter="department" data-value="furniture" onchange="applyShopFilters()"> Furniture</label></li>
+            <li><label class="checkbox-label"><input type="checkbox" data-filter="department" data-value="electronics" onchange="applyShopFilters()"> Electronics</label></li>
+        </ul>
+    </div>
     <div class="filter-group">
         <div class="filter-header"><span>Product Type</span><i class="fa-solid fa-chevron-up" style="font-size:12px;"></i></div>
         <ul class="filter-list">
@@ -114,10 +121,9 @@
         </ul>
     </div>
     <div class="filter-group">
-        <div class="filter-header"><span>Rating</span><i class="fa-solid fa-chevron-up" style="font-size:12px;"></i></div>
+        <div class="filter-header"><span>Offers</span><i class="fa-solid fa-chevron-up" style="font-size:12px;"></i></div>
         <ul class="filter-list">
-            <li><label class="checkbox-label"><input type="checkbox" data-filter="rating" data-value="5" onchange="applyShopFilters()"> 5.0 only</label></li>
-            <li><label class="checkbox-label"><input type="checkbox" data-filter="rating" data-value="4.5" onchange="applyShopFilters()"> 4.5 and up</label></li>
+            <li><label class="checkbox-label"><input type="checkbox" id="saleFilter" onchange="applyShopFilters()"> Discounted products</label></li>
         </ul>
     </div>
     <div class="filter-group" style="border-bottom:none; padding-bottom:0;">
@@ -126,8 +132,10 @@
 </aside>
 
             <!-- Right 12-Item Product Catalog Grid -->
-            <section class="shop-grid" id="shopGrid"></section>
+            <section class="shop-grid" id="shopGrid" aria-label="Products"></section>
         </div>
+        <nav id="shopPagination" class="shop-pagination" aria-label="Product pages"></nav>
+    </div>
     </main>
 
     <!-- ================= SHARED FOOTER ================= -->
@@ -198,32 +206,100 @@ function readFilters() {
     const ratings = boxes.filter(b => b.dataset.filter === 'rating').map(b => Number(b.dataset.value));
     const search = (document.getElementById('searchInput').value || '').toLowerCase().trim();
     const sort = (document.getElementById('sortSelect') || {}).value || 'featured';
-    return { categories, rooms, priceRanges, ratings, search, sort };
+    const departments = boxes.filter(b => b.dataset.filter === 'department').map(b => b.dataset.value);
+    return { categories, rooms, priceRanges, ratings, search, sort, department: departments.length === 1 ? departments[0] : '', sale: document.getElementById('saleFilter').checked };
 }
 
 function applyShopFilters() {
-    renderShopGrid('#shopGrid', readFilters());
+    const filters = readFilters();
+    syncShopUrl(filters);
+    renderActiveFilters();
+    renderShopGrid('#shopGrid', filters);
+}
+
+function syncShopUrl(filters) {
+    const params = new URLSearchParams();
+    filters.categories.forEach(value => params.append('category', value));
+    filters.rooms.forEach(value => params.append('room', value));
+    document.querySelectorAll('.filter-sidebar input[data-filter="department"]:checked').forEach(box => params.append('department', box.dataset.value));
+    document.querySelectorAll('.filter-sidebar input[data-filter="price"]:checked').forEach(box => params.append('price', box.dataset.value));
+    if (filters.sale) params.set('sale', '1');
+    if (filters.search) params.set('search', filters.search);
+    if (filters.sort !== 'featured') params.set('sort', filters.sort);
+    const query = params.toString();
+    history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`);
+}
+
+function renderActiveFilters() {
+    const container = document.getElementById('activeFilters');
+    container.replaceChildren();
+    const activeBoxes = [...document.querySelectorAll('.filter-sidebar input[type="checkbox"]:checked')];
+    activeBoxes.forEach(box => {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'filter-chip';
+        chip.textContent = `${box.closest('label').textContent.trim()} ×`;
+        chip.setAttribute('aria-label', `Remove ${box.closest('label').textContent.trim()} filter`);
+        chip.addEventListener('click', () => { box.checked = false; applyShopFilters(); });
+        container.appendChild(chip);
+    });
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput.value.trim()) {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'filter-chip';
+        chip.textContent = `Search: ${searchInput.value.trim()} ×`;
+        chip.setAttribute('aria-label', `Remove search filter ${searchInput.value.trim()}`);
+        chip.addEventListener('click', () => { searchInput.value = ''; applyShopFilters(); });
+        container.appendChild(chip);
+    }
+    if (container.childElementCount) {
+        const clear = document.createElement('button');
+        clear.type = 'button';
+        clear.className = 'filter-clear-all';
+        clear.textContent = 'Clear all';
+        clear.addEventListener('click', clearShopFilters);
+        container.appendChild(clear);
+    }
 }
 
 function clearShopFilters() {
     document.querySelectorAll('.filter-sidebar input[type="checkbox"]').forEach(box => box.checked = false);
     document.getElementById('searchInput').value = '';
     document.getElementById('sortSelect').value = 'featured';
+    document.getElementById('saleFilter').checked = false;
     applyShopFilters();
 }
 
+document.getElementById('filterOpenButton').addEventListener('click', function () {
+    const sidebar = document.getElementById('filterSidebar');
+    const opening = !sidebar.classList.contains('is-open');
+    sidebar.classList.toggle('is-open', opening);
+    this.setAttribute('aria-expanded', String(opening));
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
-    const cat = params.get('category');
-    const room = params.get('room');
+    const categories = params.getAll('category');
+    const rooms = params.getAll('room');
     const sort = params.get('sort');
-    const categoryBox = cat && document.querySelector('.filter-sidebar input[data-filter="category"][data-value="' + CSS.escape(cat) + '"]');
-    const roomBox = room && document.querySelector('.filter-sidebar input[data-filter="room"][data-value="' + CSS.escape(room) + '"]');
-    if (categoryBox) categoryBox.checked = true;
-    if (roomBox) roomBox.checked = true;
+    const search = params.get('search');
+    const departments = params.getAll('department');
+    const prices = params.getAll('price');
+    const sale = params.get('sale');
+    categories.forEach(value => { const box = document.querySelector('.filter-sidebar input[data-filter="category"][data-value="' + CSS.escape(value) + '"]'); if (box) box.checked = true; });
+    rooms.forEach(value => { const box = document.querySelector('.filter-sidebar input[data-filter="room"][data-value="' + CSS.escape(value) + '"]'); if (box) box.checked = true; });
+    departments.forEach(value => { const box = document.querySelector('.filter-sidebar input[data-filter="department"][data-value="' + CSS.escape(value) + '"]'); if (box) box.checked = true; });
+    prices.forEach(value => { const box = document.querySelector('.filter-sidebar input[data-filter="price"][data-value="' + CSS.escape(value) + '"]'); if (box) box.checked = true; });
+    if (search) document.getElementById('searchInput').value = search;
+    if (sale === '1') document.getElementById('saleFilter').checked = true;
     if (sort && Array.from(document.getElementById('sortSelect').options).some(option => option.value === sort)) {
         document.getElementById('sortSelect').value = sort;
     }
+    const title = document.getElementById('catalogTitle');
+    if (departments.length === 1) title.textContent = departments[0].charAt(0).toUpperCase() + departments[0].slice(1);
+    if (categories.length === 1) title.textContent = categories[0].charAt(0).toUpperCase() + categories[0].slice(1);
+    if (rooms.length === 1) title.textContent = rooms[0].charAt(0).toUpperCase() + rooms[0].slice(1) + ' products';
     applyShopFilters();
 });
 </script>

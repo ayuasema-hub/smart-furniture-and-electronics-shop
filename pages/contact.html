@@ -44,42 +44,47 @@
     </div>
 </header>
 
+    <main>
     <!-- ================= CONTACT HERO BANNER ================= -->
     <section class="contact-hero">
         <div class="container">
-            <h2>Contact us</h2>
-            <p>Connect with our showroom specialists about bespoke furniture collections.</p>
+            <h1>Contact Furniture Roomstore</h1>
+            <p>Contact details are not configured in this frontend demonstration.</p>
         </div>
     </section>
 
     <!-- ================= MAIN CONTACT FORM + MAP ================= -->
-    <main class="container">
+    <div class="container">
         <section class="contact-main-grid">
             <!-- Left: Contact Form -->
             <div>
-                <p class="contact-subtag">Contacts</p>
+                <p class="contact-subtag">Demonstration form</p>
                 <h3 class="contact-form-title">Contact form</h3>
                 <form
-                    onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to the showroom.'); this.reset();">
+                    id="contactForm">
                     <div class="form-control-group">
-                        <input type="text" class="form-input" placeholder="Your Name" required />
+                        <label for="contactName">Name</label>
+                        <input type="text" id="contactName" class="form-input" autocomplete="name" required />
                     </div>
                     <div class="form-control-group">
-                        <input type="email" class="form-input" placeholder="Email Address" required />
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" class="form-input" autocomplete="email" required />
                     </div>
                     <div class="form-control-group">
-                        <textarea class="form-textarea" placeholder="Message" required></textarea>
+                        <label for="contactSubject">Subject</label>
+                        <select id="contactSubject" class="form-input" required><option value="" selected disabled>Select a subject</option><option>Product question</option><option>Delivery question</option><option>Returns question</option><option>Other</option></select>
+                    </div>
+                    <div class="form-control-group">
+                        <label for="contactMessage">Message</label>
+                        <textarea id="contactMessage" class="form-textarea" required></textarea>
                     </div>
                     <button type="submit" class="btn-send-msg">Send message</button>
+                    <p id="contactFormNotice" class="contact-form-notice" role="status" aria-live="polite"></p>
                 </form>
             </div>
 
-            <!-- Right: Embedded Interactive Map -->
-            <div class="map-box">
-                <iframe
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=38.74,8.98,38.79,9.03&amp;layer=mapnik"
-                    allowfullscreen="" loading="lazy">
-                </iframe>
+            <div class="map-box contact-info-empty">
+                <div><h2>Contact information</h2><p>No verified phone number, email address, business address, or hours have been supplied for this project.</p></div>
             </div>
         </section>
 
@@ -87,48 +92,19 @@
         <section class="contact-bottom-grid">
             <div class="contact-info-columns">
                 <div>
-                    <h4>Contact us</h4>
-                    <div class="info-item">
-                        <div class="info-icon-circle"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <strong>Phone number</strong><br>
-                            <span>contact.furniture.com</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon-circle"><i class="fa-regular fa-envelope"></i></div>
-                        <div>
-                            <strong>Email visit</strong><br>
-                            <span>info@furniture.furniture.com</span>
-                        </div>
-                    </div>
+                    <h4>Customer questions</h4>
+                    <p>Use the demonstration form to preview the contact flow. It does not send or store submissions.</p>
                 </div>
 
                 <div>
-                    <h4>Contact info</h4>
-                    <div class="info-item">
-                        <div class="info-icon-circle"><i class="fa-solid fa-location-dot"></i></div>
-                        <div>
-                            <strong>Example St 25, 1000</strong><br>
-                            <span>Example store.furniture.com</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon-circle"><i class="fa-solid fa-headset"></i></div>
-                        <div>
-                            <strong>+1234567890</strong><br>
-                            <span>info@furniture.furniture.com</span>
-                        </div>
-                    </div>
+                    <h4>Business details</h4>
+                    <p>Verified business and showroom information can be added when supplied by the store owner.</p>
                 </div>
             </div>
 
-            <div class="contact-Lounge-preview">
-                <!-- SWAP YOUR IMAGE HERE -->
-                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80"
-                    alt="Showroom Lounge Preview">
-            </div>
+            <div class="contact-Lounge-preview"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="A living room furniture arrangement"></div>
         </section>
+    </div>
     </main>
 
     <!-- ================= SHARED FOOTER ================= -->
@@ -187,7 +163,12 @@
     </div>
 </footer>
 
-    <!-- Shared JavaScript Integration -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', event => {
+            event.preventDefault();
+            document.getElementById('contactFormNotice').textContent = 'This demonstration form is not connected, so your message was not sent. Configure a verified email address or backend to enable delivery.';
+        });
+    </script>
 </body>
 
 </html>

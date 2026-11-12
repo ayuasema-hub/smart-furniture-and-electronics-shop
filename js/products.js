@@ -23,7 +23,7 @@ const PRODUCTS = [
     // ==========================================
     { id: 'p016', name: 'Entoto King Bed', price: 42000, oldPrice: 48000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'A solid eucalyptus frame and upholstered headboard create restful comfort for Addis bedrooms.', rating: 5.0, badge: 'Best Seller', stock: 10 },
     { id: 'p017', name: 'Gondar Queen Bed', price: 35000, oldPrice: 40000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'Laminated wood construction gives Ethiopian guest rooms a durable and welcoming queen bed.', rating: 4.7, badge: '', stock: 14 },
-    { id: 'p018', name: 'Tana Storage Bed', price: 58000, oldPrice: 60000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1522771731479-4b6cd9f3a325?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1522771731479-4b6cd9f3a325?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1522771731479-4b6cd9f3a325?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'A hardwood frame with under-bed storage keeps Addis Ababa bedrooms organized and restful.', rating: 4.5, badge: 'New', stock: 7 },
+    { id: 'p018', name: 'Tana Storage Bed', price: 58000, oldPrice: 60000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'A hardwood frame with under-bed storage keeps Addis Ababa bedrooms organized and restful.', rating: 4.5, badge: 'New', stock: 7 },
     { id: 'p019', name: 'Adwa Single Bed', price: 18500, oldPrice: 22000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'A sturdy engineered-wood frame offers practical everyday sleeping for Ethiopian student rooms.', rating: 4.2, badge: '', stock: 22 },
     { id: 'p020', name: 'Blue Nile Canopy Bed', price: 75000, oldPrice: 85000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'A romantic canopy bed that adds a dramatic focal point to spacious master bedrooms.', rating: 4.8, badge: 'Limited', stock: 4 },
     { id: 'p021', name: 'Meskel Platform Bed', price: 38000, oldPrice: 44000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'A sleek, low-profile platform bed that brings a modern minimalist feel to the bedroom.', rating: 4.6, badge: '', stock: 11 },
@@ -34,7 +34,7 @@ const PRODUCTS = [
     { id: 'p026', name: 'Kaffa Daybed', price: 28000, oldPrice: 32000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80&sat=-10', images: ['https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80&sat=-10', 'https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80&sat=-10&sat=10'], description: 'A versatile daybed that can be used as a sofa or a guest bed, ideal for studios.', rating: 4.3, badge: '', stock: 14 },
     { id: 'p027', name: 'Merkato Metal Bed', price: 22000, oldPrice: 26000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=600&q=80&sat=-15', images: ['https://images.unsplash.com/photo-1615873966305-89e068629265?auto=format&fit=crop&w=600&q=80&sat=-15', 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=600&q=80&sat=-15&sat=10'], description: 'A sturdy metal bed frame with a simple design, offering excellent value.', rating: 4.1, badge: '', stock: 25 },
     { id: 'p028', name: 'Axum Four-Poster Bed', price: 88000, oldPrice: 95000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=600&q=80&sat=10', images: ['https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=600&q=80&sat=10', 'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=600&q=80&sat=10&sat=10'], description: 'A grand four-poster bed that makes a statement in any luxury master bedroom.', rating: 5.0, badge: 'Limited', stock: 2 },
-    { id: 'p029', name: 'Hawassa Storage Bed', price: 48000, oldPrice: 55000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1522771731479-4b6cd9f3a325?auto=format&fit=crop&w=600&q=80&sat=-10', images: ['https://images.unsplash.com/photo-1522771731479-4b6cd9f3a325?auto=format&fit=crop&w=600&q=80&sat=-10', 'https://images.unsplash.com/photo-1522771731479-4b6cd9f3a325?auto=format&fit=crop&w=600&q=80&sat=-10&sat=10'], description: 'Practical storage bed with drawers, perfect for keeping bedrooms clutter-free.', rating: 4.6, badge: 'Best Seller', stock: 10 },
+    { id: 'p029', name: 'Hawassa Storage Bed', price: 48000, oldPrice: 55000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80', images: ['https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80', 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80&sat=10'], description: 'Practical storage bed with drawers, perfect for keeping bedrooms clutter-free.', rating: 4.6, badge: 'Best Seller', stock: 10 },
     { id: 'p030', name: 'Bole Guest Bed', price: 25000, oldPrice: 30000, category: 'bed', room: 'bedroom', image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80&sat=-10', images: ['https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80&sat=-10', 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80&sat=-10&sat=10'], description: 'A simple and comfortable bed frame, ideal for guest rooms and children.', rating: 4.2, badge: '', stock: 18 },
 
     // ==========================================
@@ -138,4 +138,43 @@ const PRODUCTS = [
 
 function getProductById(id) {
     return PRODUCTS.find(p => p.id === id) || null;
+}
+
+function getProductDepartment(product) {
+    return ['tv', 'fridge', 'washer'].includes(product.category) ? 'electronics' : 'furniture';
+}
+
+function searchProducts(query) {
+    const aliases = { couch: ['sofa'], couches: ['sofas'], settee: ['sofa'], sofa: ['couch'], tv: ['television'], television: ['tv'], fridge: ['refrigerator'], refrigerator: ['fridge'] };
+    const terms = String(query || '').toLowerCase().trim().split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    return PRODUCTS.map(product => {
+        const searchable = `${product.name} ${product.brand || ''} ${product.category} ${product.room} ${product.description}`.toLowerCase();
+        const tokens = searchable.split(/[^a-z0-9]+/).filter(Boolean);
+        const score = terms.reduce((total, term) => {
+            const alternatives = aliases[term] || [];
+            if (searchable.includes(term) || alternatives.some(alternative => searchable.includes(alternative))) return total + 2;
+            return total + (term.length >= 4 && tokens.some(token => editDistanceAtMostOne(term, token)) ? 1 : 0);
+        }, 0);
+        return { product, score };
+    }).filter(result => result.score >= terms.length).sort((a, b) => b.score - a.score).map(result => result.product);
+}
+
+function editDistanceAtMostOne(left, right) {
+    if (Math.abs(left.length - right.length) > 1) return false;
+    let leftIndex = 0;
+    let rightIndex = 0;
+    let differences = 0;
+    while (leftIndex < left.length && rightIndex < right.length) {
+        if (left[leftIndex] === right[rightIndex]) {
+            leftIndex++;
+            rightIndex++;
+        } else {
+            if (++differences > 1) return false;
+            if (left.length > right.length) leftIndex++;
+            else if (right.length > left.length) rightIndex++;
+            else { leftIndex++; rightIndex++; }
+        }
+    }
+    return differences + (leftIndex < left.length || rightIndex < right.length ? 1 : 0) <= 1;
 }
