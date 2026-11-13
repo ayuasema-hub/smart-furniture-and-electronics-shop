@@ -59,7 +59,8 @@
                 <div class="login-user-badge">
                     <i class="fa-solid fa-user-lock"></i>
                 </div>
-                <h2>Sign In</h2>
+                <h1>Customer account demo</h1>
+                <p class="admin-login-note">Customer accounts are not connected. Any non-empty values continue to the shop and do not authenticate an account.</p>
 
                 <form onsubmit="event.preventDefault(); sessionStorage.setItem('fr_customer_logged_in','true'); window.location.href='shop.html';">
                     <div class="login-field-group">
@@ -73,21 +74,8 @@
                         <input type="password" id="password" class="login-input" placeholder="••••••••" required />
                     </div>
 
-                    <button type="submit" class="btn-signin-dark">Sign In</button>
+                    <button type="submit" class="btn-signin-dark">Continue to shop</button>
                 </form>
-
-                <div class="login-divider">Or continue with</div>
-
-                <div class="oauth-buttons">
-                    <button type="button" class="oauth-circle" onclick="sessionStorage.setItem('fr_customer_logged_in','true'); window.location.href='shop.html';"
-                        title="Google">
-                        <i class="fa-brands fa-google" style="color: #DB4437;"></i>
-                    </button>
-                    <button type="button" class="oauth-circle" onclick="sessionStorage.setItem('fr_customer_logged_in','true'); window.location.href='shop.html';"
-                        title="Facebook">
-                        <i class="fa-brands fa-facebook-f" style="color: #1877F2;"></i>
-                    </button>
-                </div>
                 <p style="text-align:center; margin-top:16px; font-size:12px; color:var(--text-muted);">
                     Store admin? <a href="admin-login.html" style="color:var(--gold); font-weight:600;">Sign in here</a>
                 </p>

@@ -59,35 +59,24 @@
                 <div class="login-user-badge">
                     <i class="fa-solid fa-user-lock"></i>
                 </div>
-                <h2>Admin Sign In</h2>
+                <h1>Admin demonstration access</h1>
+                <p class="admin-login-note">This is not authentication. Any non-empty values open the demonstration dashboard; a secure backend guard is not implemented.</p>
 
                 <form onsubmit="event.preventDefault(); sessionStorage.setItem('fr_admin_logged_in','true'); window.location.href='admin.html';">
                     <div class="login-field-group">
-                        <label for="username">Username/Email</label>
-                        <input type="text" id="username" class="login-input" placeholder="admin@furniture.com"
+                        <label for="username">Demo username</label>
+                            <input type="text" id="username" class="login-input" placeholder="Enter any value"
                             required />
                     </div>
 
                     <div class="login-field-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" class="login-input" placeholder="••••••••" required />
+                        <label for="password">Demo password</label>
+                        <input type="password" id="password" class="login-input" placeholder="Enter any value" required />
                     </div>
 
                     <button type="submit" class="btn-signin-dark">Sign In</button>
                 </form>
 
-                <div class="login-divider">Or continue with</div>
-
-                <div class="oauth-buttons">
-                    <button type="button" class="oauth-circle" onclick="sessionStorage.setItem('fr_admin_logged_in','true'); window.location.href='admin.html';"
-                        title="Google">
-                        <i class="fa-brands fa-google" style="color: #DB4437;"></i>
-                    </button>
-                    <button type="button" class="oauth-circle" onclick="sessionStorage.setItem('fr_admin_logged_in','true'); window.location.href='admin.html';"
-                        title="Facebook">
-                        <i class="fa-brands fa-facebook-f" style="color: #1877F2;"></i>
-                    </button>
-                </div>
                 <p style="text-align:center; margin-top:16px; font-size:12px; color:var(--text-muted);">
                     Not a store admin? <a href="login.html" style="color:var(--gold); font-weight:600;">Customer sign in</a>
                 </p>

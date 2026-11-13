@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | Furniture Roomstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/products.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <header class="navbar"></header>
+    <main class="container home-section">
+        <nav class="shop-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Search</span></nav>
+        <h1>Search products</h1>
+        <form id="searchPageForm" class="search-page-form" role="search"><label for="searchPageInput">Search the product catalogue</label><div><input id="searchPageInput" type="search" required><button class="btn-gold" type="submit">Search</button></div></form>
+        <p id="searchResultLabel" aria-live="polite"></p>
+        <section class="product-grid" id="searchResults" aria-label="Search results"></section>
+        <section id="searchNoResults" class="search-empty" hidden><h2>No matching products</h2><p>Try a different product name, brand, or category.</p><p>Browse <a href="shop.html?department=furniture">Furniture</a> or <a href="shop.html?department=electronics">Electronics</a>.</p><h3>Popular products</h3><div class="product-grid" id="popularSearchProducts"></div></section>
+    </main>
+    <footer class="footer"></footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('searchPageInput');
+            const params = new URLSearchParams(location.search);
+            input.value = params.get('q') || params.get('search') || '';
+            const renderResults = () => {
+                const query = input.value.trim();
+                const results = searchProducts(query);
+                const grid = document.getElementById('searchResults');
+                grid.replaceChildren(...results.slice(0, 24).map(product => buildProductCard(product)).filter(Boolean));
+                document.getElementById('searchResultLabel').textContent = query ? `${results.length} matching products` : 'Enter a search term to find products.';
+                document.getElementById('searchNoResults').hidden = !query || results.length > 0;
+                if (query && !results.length) renderProductCollection('#popularSearchProducts', () => true, 4);
+            };
+            document.getElementById('searchPageForm').addEventListener('submit', event => { event.preventDefault(); history.replaceState(null, '', `?q=${encodeURIComponent(input.value.trim())}`); renderResults(); });
+            renderResults();
+        });
+    </script>
+</body>
+</html>

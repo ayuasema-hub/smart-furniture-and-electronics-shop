@@ -45,101 +45,51 @@
     </div>
 </header>
 
-    <!-- ================= MAIN PRODUCT DETAIL SECTION ================= -->
-    <section class="product-detail-section">
-        <div class="container product-detail-grid">
-
-            <!-- Left: Image Gallery + 4 Thumbnails -->
-            <div>
-                <div class="main-gallery-img">
-                    <!-- SWAP YOUR MAIN PRODUCT IMAGE HERE -->
-                    <img id="mainProductImg" src="" alt="Product">
-                </div>
-                <div class="thumbnail-row" id="thumbRow"></div>
-            </div>
-
-            <!-- Right: Product Details & Add to Cart Controls -->
-            <div class="product-detail-info">
-                <p class="breadcrumb-tag">Product</p>
-                <h2 class="product-detail-title" id="productName">Loading...</h2>
-
-                <div class="rating-row">
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+    <main>
+        <section class="product-detail-section" id="productContent">
+            <div class="container">
+                <nav class="product-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="shop.html">Shop</a><span>/</span><span id="breadcrumbProduct">Product</span></nav>
+                <div class="product-detail-grid">
+                    <div>
+                        <div class="main-gallery-img"><img id="mainProductImg" src="" alt=""></div>
+                        <div class="thumbnail-row" id="thumbRow" aria-label="Product images"></div>
                     </div>
-                    <span>3 reviews</span>
-                </div>
-
-                <div class="sku-row">
-                    <span>ID: reviews</span>
-                    <span>ID: D025103</span>
-                </div>
-                <p id="productDesc" style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:20px;"></p>
-
-                <div class="detail-price" id="productPriceVal">Loading...</div>
-
-                <label class="option-label">Color</label>
-                <div class="detail-swatches">
-                    <span class="detail-swatch active" style="background: #4A4A48;" onclick="selectSwatch(this)"></span>
-                    <span class="detail-swatch" style="background: #D8CBB8;" onclick="selectSwatch(this)"></span>
-                    <span class="detail-swatch" style="background: #8C7A6B;" onclick="selectSwatch(this)"></span>
-                    <span class="detail-swatch" style="background: #C5C6C7;" onclick="selectSwatch(this)"></span>
-                </div>
-
-                <label class="option-label">Quantity</label>
-                <div class="purchase-actions">
-                    <div class="qty-control">
-                        <button class="qty-btn" type="button" onclick="updateQty(-1)">−</button>
-                        <input type="text" id="qtyInput" class="qty-input" value="1" readonly />
-                        <button class="qty-btn" type="button" onclick="updateQty(1)">+</button>
+                    <div class="product-detail-info">
+                        <p class="product-brand" id="productBrand" hidden></p>
+                        <h1 class="product-detail-title" id="productName">Loading product...</h1>
+                        <p id="productDesc" class="product-description"></p>
+                        <p class="detail-price" id="productPriceVal"></p>
+                        <p class="detail-old-price" id="productOldPrice" hidden></p>
+                        <p class="product-availability" id="productCategory"></p>
+                        <div class="product-purchase-panel">
+                            <label class="option-label" for="qtyInput">Quantity</label>
+                            <div class="purchase-actions">
+                                <div class="qty-control">
+                                    <button class="qty-btn" type="button" aria-label="Decrease quantity" onclick="updateQty(-1)">-</button>
+                                    <input type="number" id="qtyInput" class="qty-input" value="1" min="1" max="99" inputmode="numeric">
+                                    <button class="qty-btn" type="button" aria-label="Increase quantity" onclick="updateQty(1)">+</button>
+                                </div>
+                                <button class="btn-dark-cart" type="button" onclick="addCurrentProductToCart(false)">Add to cart</button>
+                                <button class="btn-gold buy-now-button" type="button" onclick="addCurrentProductToCart(true)">Buy now</button>
+                            </div>
+                        </div>
+                        <p class="delivery-note">Delivery arrangements and any applicable charges are confirmed during checkout.</p>
+                        <details class="product-accordion"><summary>Description</summary><p id="productDescriptionDetails"></p></details>
+                        <details class="product-accordion"><summary>Specifications</summary><dl id="productSpecifications"></dl></details>
                     </div>
-                    <button class="btn-dark-cart" type="button" onclick="addCurrentProductToCart()">Add to cart</button>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-    <!-- ================= TRUST FEATURES STRIP ================= -->
-    <section class="container">
-        <div class="features-strip" style="padding: 36px 0; border-bottom: 1px solid var(--border-light);">
-            <div class="feature-box">
-                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                <h4>Free Delivery</h4>
-                <p>Free delivery checks and white-glove service</p>
-            </div>
-            <div class="feature-box">
-                <div class="feature-icon"><i class="fa-solid fa-award"></i></div>
-                <h4>Warranty</h4>
-                <p>Elegant 5-year warranty protection</p>
-            </div>
-            <div class="feature-box">
-                <div class="feature-icon"><i class="fa-regular fa-credit-card"></i></div>
-                <h4>Secure Payment</h4>
-                <p>100% encrypted and verified checkout</p>
-            </div>
-            <div class="feature-box">
-                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
-                <h4>24/7 Support</h4>
-                <p>24/7 support team and concierge service</p>
-            </div>
-        </div>
-
-        <!-- ================= RELATED PRODUCTS ================= -->
-        <div class="section-header" style="margin-top: 40px;">
-            <h3 class="section-title">Related products</h3>
-            <div class="section-controls">
-                <button class="action-circle"><i class="fa-solid fa-chevron-left" style="font-size:10px;"></i></button>
-                <button class="action-circle"><i class="fa-solid fa-chevron-right" style="font-size:10px;"></i></button>
-            </div>
-        </div>
-
-        <div class="product-grid" id="relatedGrid"></div>
-    </section>
+        </section>
+        <section id="productNotFound" class="container product-not-found" hidden>
+            <h1>Product not found</h1><p>This product link may be incorrect or the item is no longer listed.</p><a class="btn-gold" href="shop.html">Browse the shop</a>
+        </section>
+        <section class="container related-products-section">
+            <div class="section-header"><h2 class="section-title">Related products</h2></div>
+            <div class="product-grid" id="relatedGrid"></div>
+            <div class="section-header"><h2 class="section-title">Recently viewed</h2></div>
+            <div class="product-grid" id="recentGrid"></div>
+        </section>
+    </main>
 
     <!-- ================= SHARED FOOTER ================= -->
     <footer class="footer">
@@ -198,60 +148,112 @@
 </footer>
 
     <script>
-let currentProduct = null;
-let currentQty = 1;
+    let currentProduct = null;
 
-function changeImage(element, srcUrl) {
-    document.getElementById('mainProductImg').src = srcUrl;
-    document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
-    element.classList.add('active');
-}
-
-function selectSwatch(element) {
-    document.querySelectorAll('.detail-swatch').forEach(s => s.classList.remove('active'));
-    element.classList.add('active');
-}
-
-function updateQty(change) {
-    currentQty = Math.max(1, currentQty + change);
-    document.getElementById('qtyInput').value = currentQty;
-}
-
-function addCurrentProductToCart() {
-    if (!currentProduct) return;
-    for (let i = 0; i < currentQty; i++) {
-        addProductToCart(currentProduct.id, currentProduct.name, currentProduct.price, currentProduct.image);
+    function changeImage(button, srcUrl) {
+        document.getElementById('mainProductImg').src = srcUrl;
+        document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
     }
-    window.location.href = 'cart.html';
-}
 
-document.addEventListener('DOMContentLoaded', function () {
-    const id = new URLSearchParams(window.location.search).get('id');
-    currentProduct = getProductById(id) || PRODUCTS[0];
-    currentQty = 1;
-    document.getElementById('qtyInput').value = 1;
+    function updateQty(change) {
+        const input = document.getElementById('qtyInput');
+        const quantity = Math.min(99, Math.max(1, (Number(input.value) || 1) + change));
+        input.value = String(quantity);
+    }
 
-    document.title = currentProduct.name + ' | Furniture Roomstore';
-    document.getElementById('productName').textContent = currentProduct.name;
-    document.getElementById('productPriceVal').textContent = formatETB(currentProduct.price);
-    document.getElementById('productDesc').textContent = currentProduct.description;
+    function addCurrentProductToCart(buyNow) {
+        if (!currentProduct) return;
+        const quantityInput = document.getElementById('qtyInput');
+        const quantity = Math.min(99, Math.max(1, Math.floor(Number(quantityInput.value) || 1)));
+        addProductToCart(currentProduct.id, currentProduct.name, currentProduct.price, currentProduct.image, quantity);
+        if (buyNow) window.location.href = 'checkout.html';
+    }
 
-    const thumbRow = document.getElementById('thumbRow');
-    const gallery = (currentProduct.images && currentProduct.images.length) ? currentProduct.images : [currentProduct.image];
-    document.getElementById('mainProductImg').src = gallery[0];
-    gallery.forEach((src, i) => {
-        const t = document.createElement('div');
-        t.className = 'thumb-item' + (i === 0 ? ' active' : '');
-        t.onclick = function () { changeImage(t, src); };
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = currentProduct.name + ' view ' + (i + 1);
-        t.appendChild(img);
-        thumbRow.appendChild(t);
+    function renderSpecifications(product) {
+        const values = { ...(product.specifications || {}) };
+        ['dimensions', 'material', 'color'].forEach(key => {
+            if (product[key]) values[key.charAt(0).toUpperCase() + key.slice(1)] = product[key];
+        });
+        const list = document.getElementById('productSpecifications');
+        Object.entries(values).filter(([, value]) => value !== null && value !== undefined && String(value).trim()).forEach(([name, value]) => {
+            const term = document.createElement('dt');
+            const description = document.createElement('dd');
+            term.textContent = name;
+            description.textContent = Array.isArray(value) ? value.join(', ') : String(value);
+            list.append(term, description);
+        });
+        if (!list.children.length) {
+            const empty = document.createElement('p');
+            empty.textContent = 'No additional specifications are available for this product.';
+            list.appendChild(empty);
+        }
+    }
+
+    function renderRecentlyViewed(currentId) {
+        let ids = [];
+        try { ids = JSON.parse(localStorage.getItem('furniture_recently_viewed') || '[]'); } catch (error) { ids = []; }
+        ids = [currentId, ...ids.filter(id => id !== currentId)].slice(0, 6);
+        try { localStorage.setItem('furniture_recently_viewed', JSON.stringify(ids)); } catch (error) { /* storage may be unavailable */ }
+        const products = ids.filter(id => id !== currentId).map(getProductById).filter(Boolean).slice(0, 4);
+        const grid = document.getElementById('recentGrid');
+        grid.replaceChildren(...products.map(product => buildProductCard(product)).filter(Boolean));
+        if (!products.length) grid.closest('section').querySelectorAll('.section-header')[1].hidden = true;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const id = new URLSearchParams(window.location.search).get('id');
+        currentProduct = getProductById(id);
+        if (!currentProduct) {
+            document.title = 'Product not found | Furniture Roomstore';
+            document.getElementById('productContent').hidden = true;
+            document.getElementById('productNotFound').hidden = false;
+            document.querySelector('.related-products-section').hidden = true;
+            return;
+        }
+
+        document.title = `${currentProduct.name} | Furniture Roomstore`;
+        document.getElementById('productName').textContent = currentProduct.name;
+        document.getElementById('breadcrumbProduct').textContent = currentProduct.name;
+        document.getElementById('productPriceVal').textContent = formatETB(currentProduct.price);
+        document.getElementById('productDesc').textContent = currentProduct.description || '';
+        document.getElementById('productDescriptionDetails').textContent = currentProduct.description || 'No description is available.';
+        document.getElementById('productCategory').textContent = `${currentProduct.category} · ${currentProduct.room}`;
+
+        if (currentProduct.brand) {
+            const brand = document.getElementById('productBrand');
+            brand.textContent = currentProduct.brand;
+            brand.hidden = false;
+        }
+        if (Number(currentProduct.oldPrice) > Number(currentProduct.price)) {
+            const oldPrice = document.getElementById('productOldPrice');
+            oldPrice.textContent = `Was ${formatETB(currentProduct.oldPrice)}`;
+            oldPrice.hidden = false;
+        }
+
+        const gallery = [...new Set((currentProduct.images || []).filter(Boolean))];
+        if (!gallery.includes(currentProduct.image)) gallery.unshift(currentProduct.image);
+        document.getElementById('mainProductImg').src = gallery[0];
+        document.getElementById('mainProductImg').alt = currentProduct.name;
+        const thumbRow = document.getElementById('thumbRow');
+        gallery.forEach((src, index) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = `thumb-item${index === 0 ? ' active' : ''}`;
+            button.setAttribute('aria-label', `View image ${index + 1} of ${currentProduct.name}`);
+            button.addEventListener('click', () => changeImage(button, src));
+            const image = document.createElement('img');
+            image.src = src;
+            image.alt = '';
+            image.loading = 'lazy';
+            button.appendChild(image);
+            thumbRow.appendChild(button);
+        });
+
+        renderSpecifications(currentProduct);
+        renderRelated('#relatedGrid', currentProduct.id, 4);
+        renderRecentlyViewed(currentProduct.id);
     });
-
-    renderRelated('#relatedGrid', currentProduct.id, 4);
-});
 </script>
 </body>
 

@@ -44,15 +44,20 @@
 
     <main class="cart-page-wrapper">
         <div class="container">
-            <h2 class="cart-page-title">Checkout</h2>
-            <div class="cart-layout">
+            <h1 class="cart-page-title">Checkout</h1>
+            <p class="checkout-demo-note">Demonstration checkout only. No payment is processed and no order is sent to a store system.</p>
+            <p id="checkoutEmpty" class="cart-empty-msg" hidden>Your cart is empty. <a class="read-more-link" href="shop.html">Continue shopping</a></p>
+            <form id="checkoutForm" class="cart-layout">
                 <div>
                     <div class="cart-items-card" style="margin-bottom:24px;">
                         <h3 style="margin-bottom:16px;">Delivery Details</h3>
-                        <div class="form-control-group"><input type="text" id="ckName" class="form-input" placeholder="Full Name" required></div>
-                        <div class="form-control-group"><input type="tel" id="ckPhone" class="form-input" placeholder="+251 9XX XXX XXX" required></div>
+                        <div class="form-control-group"><label for="ckName">Full name</label><input type="text" id="ckName" name="name" class="form-input" autocomplete="name" required></div>
+                        <div class="form-control-group"><label for="ckPhone">Phone number</label><input type="tel" id="ckPhone" name="phone" class="form-input" autocomplete="tel" placeholder="+251 912 345 678" pattern="(?:\+251 ?|0)?9(?: ?[0-9]){8}" title="Use an Ethiopian mobile number, such as +251 912 345 678 or 0912345678." required></div>
+                        <div class="form-control-group"><label for="ckEmail">Email (optional)</label><input type="email" id="ckEmail" name="email" class="form-input" autocomplete="email"></div>
                         <div class="form-control-group">
-                            <select id="ckCity" class="form-input" onchange="updateCheckoutTotals()">
+                            <label for="ckCity">City</label>
+                            <select id="ckCity" name="city" class="form-input" required>
+                                <option value="" disabled selected>Select a city</option>
                                 <option value="Addis Ababa">Addis Ababa</option>
                                 <option value="Adama">Adama</option>
                                 <option value="Hawassa">Hawassa</option>
@@ -60,13 +65,13 @@
                                 <option value="Mekelle">Mekelle</option>
                             </select>
                         </div>
-                        <div class="form-control-group"><textarea id="ckAddress" class="form-textarea" placeholder="Delivery Address" required></textarea></div>
-                        <div class="form-control-group"><textarea id="ckNotes" class="form-textarea" placeholder="Order Notes (optional)" style="height:70px;"></textarea></div>
+                        <div class="form-control-group"><label for="ckAddress">Delivery address</label><textarea id="ckAddress" name="address" class="form-textarea" autocomplete="street-address" required></textarea></div>
+                        <div class="form-control-group"><label for="ckNotes">Additional delivery instructions (optional)</label><textarea id="ckNotes" name="notes" class="form-textarea" style="height:70px;"></textarea></div>
                     </div>
                     <div class="cart-items-card">
                         <h3 style="margin-bottom:16px;">Payment Method</h3>
-                        <label class="checkbox-label" style="margin-bottom:10px;"><input type="radio" name="payMethod" value="telebirr" checked> Telebirr</label>
-                        <label class="checkbox-label" style="margin-bottom:10px;"><input type="radio" name="payMethod" value="cbebirr"> CBE Birr</label>
+                        <label class="checkbox-label" style="margin-bottom:10px;"><input type="radio" name="payMethod" value="telebirr" checked> Telebirr (selection only)</label>
+                        <label class="checkbox-label" style="margin-bottom:10px;"><input type="radio" name="payMethod" value="cbebirr"> CBE Birr (selection only)</label>
                         <label class="checkbox-label"><input type="radio" name="payMethod" value="cod"> Cash on Delivery</label>
                     </div>
                 </div>
@@ -74,11 +79,13 @@
                     <h3>Order Summary</h3>
                     <div id="ckSummaryItems" style="margin-bottom:16px; font-size:13px; color:var(--text-muted);"></div>
                     <div class="summary-line"><span>Subtotal</span><strong id="ckSubtotal">0 ETB</strong></div>
-                    <div class="summary-line"><span>Delivery</span><strong id="ckDelivery">0 ETB</strong></div>
+                    <div class="summary-line"><span>Demo delivery fee</span><strong id="ckDelivery">0.00 ETB</strong></div>
                     <div class="summary-total"><span>Total:</span><span id="ckTotal">0 ETB</span></div>
-                    <button type="button" class="btn-checkout-gold" onclick="placeOrder()">Place Order</button>
+                    <p class="checkout-fee-note">The demo fee is set to 0 ETB for all cities. This is not a shipping quote; configure verified delivery rules before production.</p>
+                    <button type="submit" class="btn-checkout-gold">Submit demo order</button>
+                    <p id="checkoutNotice" class="checkout-notice" role="status" aria-live="polite"></p>
                 </aside>
-            </div>
+            </form>
         </div>
     </main>
 
@@ -137,8 +144,15 @@
     </div>
 </footer>
     <script>
+        const CHECKOUT_DELIVERY_FEE_ETB = 0;
+
         function renderCheckout() {
             const cart = getCart();
+            if (!cart.length) {
+                document.getElementById('checkoutForm').hidden = true;
+                document.getElementById('checkoutEmpty').hidden = false;
+                return;
+            }
             const container = document.getElementById('ckSummaryItems');
             container.replaceChildren();
             cart.forEach(item => {
@@ -157,26 +171,48 @@
         function updateCheckoutTotals() {
             const cart = getCart();
             const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-            const city = document.getElementById('ckCity') ? document.getElementById('ckCity').value : 'Addis Ababa';
-            const delivery = city === 'Addis Ababa' ? 0 : 250;
+            const delivery = cart.length ? CHECKOUT_DELIVERY_FEE_ETB : 0;
             document.getElementById('ckSubtotal').textContent = formatETB(subtotal);
             document.getElementById('ckDelivery').textContent = formatETB(delivery);
             document.getElementById('ckTotal').textContent = formatETB(subtotal + delivery);
         }
 
-        function placeOrder() {
+        function placeOrder(event) {
+            event.preventDefault();
+            if (!getCart().length) {
+                document.getElementById('checkoutForm').hidden = true;
+                document.getElementById('checkoutEmpty').hidden = false;
+                return;
+            }
+            const form = document.getElementById('checkoutForm');
+            const phoneInput = document.getElementById('ckPhone');
+            phoneInput.setCustomValidity('');
+            if (!form.reportValidity()) return;
             const name = document.getElementById('ckName').value.trim();
-            const phone = document.getElementById('ckPhone').value.trim();
-            if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+            const phone = phoneInput.value.trim();
+            const normalizedPhone = phone.replace(/[\s()-]/g, '');
+            if (!/^(?:\+251|0)?9\d{8}$/.test(normalizedPhone)) {
+                phoneInput.setCustomValidity('Enter a valid Ethiopian mobile number.');
+                phoneInput.reportValidity();
+                return;
+            }
             const method = document.querySelector('input[name="payMethod"]:checked').value;
             const orderId = 'FR-' + Date.now().toString().slice(-8);
-            sessionStorage.setItem('fr_last_order_id', orderId);
-            const methodLabel = method === 'telebirr' ? 'Telebirr' : method === 'cbebirr' ? 'CBE Birr' : 'Cash on Delivery';
-            alert(`Order ${orderId} placed!\nPayment: ${methodLabel}\nYou will receive a confirmation on ${phone}.`);
+            try {
+                sessionStorage.setItem('fr_last_order_id', orderId);
+                sessionStorage.setItem('fr_last_order_status', 'demo-only');
+                sessionStorage.setItem('fr_last_order_payment_method', method);
+                sessionStorage.setItem('fr_last_order_total', document.getElementById('ckTotal').textContent);
+            } catch (error) {
+                document.getElementById('checkoutNotice').textContent = 'This browser could not store the demo confirmation.';
+                return;
+            }
             saveCart([]);
-            setTimeout(() => { window.location.href = 'order-success.html'; }, 1500);
+            window.location.href = 'order-success.html';
         }
 
+        document.getElementById('ckCity').addEventListener('change', updateCheckoutTotals);
+        document.getElementById('checkoutForm').addEventListener('submit', placeOrder);
         document.addEventListener('DOMContentLoaded', renderCheckout);
     </script>
 </body>

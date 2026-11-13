@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics | Furniture Roomstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/products.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <header class="navbar"></header>
+    <main class="container home-section">
+        <nav class="shop-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Electronics</span></nav>
+        <h1>Electronics</h1>
+        <p>Browse televisions and home appliances in the current product catalogue.</p>
+        <nav class="room-links" aria-label="Electronics categories"><a href="shop.html?category=tv">Televisions</a><a href="shop.html?category=fridge">Refrigerators</a><a href="shop.html?category=washer">Washing machines</a></nav>
+        <div class="section-header"><h2 class="section-title">Electronics collection</h2></div>
+        <div class="product-grid" id="departmentGrid"></div>
+    </main>
+    <footer class="footer"></footer>
+    <script>document.addEventListener('DOMContentLoaded', () => renderProductCollection('#departmentGrid', product => getProductDepartment(product) === 'electronics', 12));</script>
+</body>
+</html>
