@@ -1,174 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | Furniture Roomstore</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Tsegaye Furniture | Customer Assistance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../js/products.js" defer></script>
     <script src="../js/render.js" defer></script>
     <script src="../js/main.js" defer></script>
 </head>
-
 <body>
-
-    <!-- ================= HEADER / NAVBAR ================= -->
     <header class="navbar">
-    <div class="container nav-container">
-        <a href="../index.html" class="brand-logo">
-            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-            <div class="brand-text">
-                <h1>Furniture &amp; Appliances</h1>
-                <span>Roomstore</span>
-            </div>
-        </a>
-        <nav class="nav-links">
-            <a href="../index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="product.html">Deals</a>
-            <a href="about.html">About</a>
-            <a href="contact.html" class="active">Contact</a>
-        </nav>
-        <div class="nav-actions">
-            <a href="login.html" class="btn-gold">Sign in</a>
-            <a href="cart.html" class="nav-icon" title="Shopping Cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="cart-badge">0</span>
-            </a>
-            <a href="shop.html" class="nav-icon" title="Search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </a>
-        </div>
+    <div class="container nav-container no-js-header">
+        <a href="../index.html" class="brand-logo" aria-label="Tsegaye Furniture home"><span class="logo-circle" aria-hidden="true"><i class="fa-solid fa-couch"></i></span><span class="brand-text"><span class="brand-name">Tsegaye Furniture</span></span></a>
+        <nav class="no-js-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="login.html">Account</a><a href="cart.html">Cart</a></nav>
     </div>
 </header>
-
     <main>
-    <!-- ================= CONTACT HERO BANNER ================= -->
-    <section class="contact-hero">
-        <div class="container">
-            <h1>Contact Furniture Roomstore</h1>
-            <p>Contact details are not configured in this frontend demonstration.</p>
+        <section class="contact-hero">
+            <div class="container contact-hero-inner">
+                <p class="contact-kicker">Tsegaye Furniture · Customer care</p>
+                <h1>We're Here to Help</h1>
+                <p>Get assistance with furniture, electronics, product information and customer inquiries.</p>
+            </div>
+        </section>
+
+        <div class="container contact-page-container">
+            <nav class="shop-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
+            <section class="contact-main-grid" aria-label="Contact form and business information">
+                <div class="contact-form-card">
+                    <p class="contact-subtag">Customer assistance</p>
+                    <h2 class="contact-form-title">Send us a message</h2>
+                    <p class="contact-form-intro">Tell us what you need help with. The form will become available when a verified message service is set up.</p>
+                    <form id="contactForm" aria-describedby="contact-form-status">
+                        <fieldset disabled>
+                            <div class="form-control-group">
+                                <label for="contactName">Full name</label>
+                                <input type="text" id="contactName" name="name" class="form-input" autocomplete="name" required>
+                            </div>
+                            <div class="form-control-group">
+                                <label for="contactEmail">Email address</label>
+                                <input type="email" id="contactEmail" name="email" class="form-input" autocomplete="email" required>
+                            </div>
+                            <div class="form-control-group">
+                                <label for="contactSubject">Subject</label>
+                                <select id="contactSubject" name="subject" class="form-input" required>
+                                    <option value="" selected>Select a subject</option>
+                                    <option value="product">Product question</option>
+                                    <option value="delivery">Delivery question</option>
+                                    <option value="order">Order assistance</option>
+                                    <option value="returns">Returns or warranty</option>
+                                    <option value="other">Other inquiry</option>
+                                </select>
+                            </div>
+                            <div class="form-control-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" name="message" class="form-textarea" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-send-msg" disabled>Messaging unavailable</button>
+                        </fieldset>
+                    </form>
+                    <p id="contact-form-status" class="contact-form-notice" role="status">Messaging is not available yet. This form cannot send your message.</p>
+                </div>
+
+                <aside class="contact-info-panel" aria-labelledby="contact-info-heading">
+                    <p class="contact-subtag">Business information</p>
+                    <h2 id="contact-info-heading" class="contact-form-title">Contact information</h2>
+                    <p class="contact-info-intro">These details will appear here after they are confirmed by the business.</p>
+                    <div class="contact-info-columns">
+                        <div class="info-item"><span class="info-icon-circle" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span><div><h3>Showroom</h3><p class="contact-info-empty">Address awaiting confirmation</p></div></div>
+                        <div class="info-item"><span class="info-icon-circle" aria-hidden="true"><i class="fa-solid fa-phone"></i></span><div><h3>Telephone</h3><p class="contact-info-empty">Number awaiting confirmation</p></div></div>
+                        <div class="info-item"><span class="info-icon-circle" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span><div><h3>Email</h3><p class="contact-info-empty">Address awaiting confirmation</p></div></div>
+                        <div class="info-item"><span class="info-icon-circle" aria-hidden="true"><i class="fa-solid fa-clock"></i></span><div><h3>Business hours</h3><p class="contact-info-empty">Hours awaiting confirmation</p></div></div>
+                        <div class="info-item"><span class="info-icon-circle" aria-hidden="true"><i class="fa-solid fa-share-nodes"></i></span><div><h3>Social media</h3><p class="contact-info-empty">Official accounts awaiting confirmation</p></div></div>
+                    </div>
+                    <p class="owner-confirmation"><strong>Owner confirmation needed:</strong> provide verified contact details and business hours before publishing.</p>
+                </aside>
+            </section>
+
+            <section class="contact-bottom-grid" aria-label="Additional customer information">
+                <div class="contact-info-columns contact-bottom-copy">
+                    <div>
+                        <h3>Product questions</h3>
+                        <p>Have the product name or page ready. Ask the business to confirm its dimensions, materials, included items and availability.</p>
+                    </div>
+                    <div>
+                        <h3>Before visiting</h3>
+                        <p>The showroom address and opening hours have not been confirmed. Please wait for verified details before planning a visit.</p>
+                    </div>
+                </div>
+                <figure class="contact-Lounge-preview">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="A furnished living room with a sofa and warm wood accents">
+                    <figcaption>Furniture inspiration. This image is illustrative and is not a photograph of the Tsegaye Furniture showroom.</figcaption>
+                </figure>
+            </section>
+
+            <section class="contact-assistance-grid" aria-label="Customer assistance topics">
+                <article id="product-assistance" class="contact-assistance-card">
+                    <h2>Product assistance</h2>
+                    <p>When asking about an item, include its name or page link and the details you want confirmed. Product availability and specifications should be checked with the business.</p>
+                    <a class="read-more-link" href="shop.html">Browse products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+                <article id="order-assistance" class="contact-assistance-card">
+                    <h2>Order assistance</h2>
+                    <p>This website does not send orders to the business. Confirm product availability, delivery arrangements and payment instructions directly through a verified business channel before proceeding.</p>
+                    <a class="read-more-link" href="delivery.html">Delivery information <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+            </section>
         </div>
-    </section>
-
-    <!-- ================= MAIN CONTACT FORM + MAP ================= -->
-    <div class="container">
-        <section class="contact-main-grid">
-            <!-- Left: Contact Form -->
-            <div>
-                <p class="contact-subtag">Demonstration form</p>
-                <h3 class="contact-form-title">Contact form</h3>
-                <form
-                    id="contactForm">
-                    <div class="form-control-group">
-                        <label for="contactName">Name</label>
-                        <input type="text" id="contactName" class="form-input" autocomplete="name" required />
-                    </div>
-                    <div class="form-control-group">
-                        <label for="contactEmail">Email</label>
-                        <input type="email" id="contactEmail" class="form-input" autocomplete="email" required />
-                    </div>
-                    <div class="form-control-group">
-                        <label for="contactSubject">Subject</label>
-                        <select id="contactSubject" class="form-input" required><option value="" selected disabled>Select a subject</option><option>Product question</option><option>Delivery question</option><option>Returns question</option><option>Other</option></select>
-                    </div>
-                    <div class="form-control-group">
-                        <label for="contactMessage">Message</label>
-                        <textarea id="contactMessage" class="form-textarea" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-send-msg">Send message</button>
-                    <p id="contactFormNotice" class="contact-form-notice" role="status" aria-live="polite"></p>
-                </form>
-            </div>
-
-            <div class="map-box contact-info-empty">
-                <div><h2>Contact information</h2><p>No verified phone number, email address, business address, or hours have been supplied for this project.</p></div>
-            </div>
-        </section>
-
-        <!-- Bottom Row: Contact Details + Showroom Preview Photo -->
-        <section class="contact-bottom-grid">
-            <div class="contact-info-columns">
-                <div>
-                    <h4>Customer questions</h4>
-                    <p>Use the demonstration form to preview the contact flow. It does not send or store submissions.</p>
-                </div>
-
-                <div>
-                    <h4>Business details</h4>
-                    <p>Verified business and showroom information can be added when supplied by the store owner.</p>
-                </div>
-            </div>
-
-            <div class="contact-Lounge-preview"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="A living room furniture arrangement"></div>
-        </section>
-    </div>
     </main>
-
-    <!-- ================= SHARED FOOTER ================= -->
-    <footer class="footer">
-    <div class="container footer-grid">
-        <div>
-            <a href="../index.html" class="brand-logo" style="margin-bottom: 16px;">
-                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                <div class="brand-text">
-                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
-                    <span>Roomstore</span>
-                </div>
-            </a>
-            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
-            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
-            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
-        </div>
-        <div>
-            <h4>Department</h4>
-            <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="shop.html">Showrooms</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Categories</h4>
-            <ul>
-                <li><a href="shop.html">Living Room</a></li>
-                <li><a href="shop.html">Bedroom</a></li>
-                <li><a href="shop.html">Dining</a></li>
-                <li><a href="shop.html">Appliances</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Support</h4>
-            <ul>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="shop.html">Delivery &amp; Returns</a></li>
-                <li><a href="login.html">My Account</a></li>
-            </ul>
-        </div>
-        <div>
-            <div class="social-row">
-                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <h4>Newsletter</h4>
-            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                <input type="email" placeholder="Email address" required />
-                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
-            </form>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', event => {
-            event.preventDefault();
-            document.getElementById('contactFormNotice').textContent = 'This demonstration form is not connected, so your message was not sent. Configure a verified email address or backend to enable delivery.';
-        });
-    </script>
+    <footer class="footer"><div class="container footer-grid site-footer-grid">
+    <div class="footer-brand"><a href="../index.html" class="footer-brand-name">Tsegaye Furniture</a><p>Furniture and home electronics for everyday living.</p></div>
+    <div><h2>Shop</h2><ul><li><a href="shop.html">All products</a></li><li><a href="furniture.html">Furniture</a></li><li><a href="electronics.html">Electronics</a></li></ul></div>
+    <div><h2>Customer support</h2><ul><li><a href="delivery.html">Delivery</a></li><li><a href="returns.html">Returns &amp; warranty</a></li><li><a href="faq.html">Frequently asked questions</a></li></ul></div>
+    <div><h2>Company &amp; contact</h2><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+</div></footer>
 </body>
-
 </html>

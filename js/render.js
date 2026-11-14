@@ -19,11 +19,10 @@ function buildProductCard(p, basePath) {
     image.loading = 'lazy';
     image.decoding = 'async';
     imageLink.appendChild(image);
-
-    if (p.badge) {
+    if (p.verifiedPromotion === true && String(p.badge || '').trim().toLowerCase() === 'sale' && Number(p.oldPrice) > Number(p.price)) {
         const badge = document.createElement('span');
         badge.className = 'product-badge';
-        badge.textContent = p.badge;
+        badge.textContent = 'Sale';
         imageLink.appendChild(badge);
     }
 
@@ -43,7 +42,7 @@ function buildProductCard(p, basePath) {
     const meta = document.createElement('div');
     meta.className = 'product-meta';
     const priceMeta = document.createElement('div');
-    if (Number.isFinite(Number(p.oldPrice)) && Number(p.oldPrice) > Number(p.price)) {
+    if (p.verifiedPromotion === true && Number.isFinite(Number(p.oldPrice)) && Number(p.oldPrice) > Number(p.price)) {
         const oldPrice = document.createElement('span');
         oldPrice.className = 'old-price';
         oldPrice.textContent = formatETB(p.oldPrice);
@@ -105,12 +104,11 @@ function renderShopGrid(targetSelector, filters) {
         (!priceRanges.length || priceRanges.some(range => p.price >= range.min && p.price <= range.max)) &&
         (!ratings.length || (Number.isFinite(Number(p.rating)) && Number(p.reviewCount) > 0 && ratings.some(rating => p.rating >= rating))) &&
         (!department || getProductDepartment(p) === department) &&
-        (!selected.sale || (Number(p.oldPrice) > Number(p.price) && Number(p.price) > 0)) &&
+        (!selected.sale || (p.verifiedPromotion === true && Number(p.oldPrice) > Number(p.price) && Number(p.price) > 0)) &&
         (!searchMatches || searchMatches.has(p.id))
     );
     if (selected.sort === 'price-low') matches.sort((a, b) => a.price - b.price);
     if (selected.sort === 'price-high') matches.sort((a, b) => b.price - a.price);
-    if (selected.sort === 'newest') matches.sort((a, b) => Number(String(b.badge || '').toLowerCase() === 'new') - Number(String(a.badge || '').toLowerCase() === 'new'));
     const pageSize = 12;
     const totalPages = Math.max(1, Math.ceil(matches.length / pageSize));
     const currentPage = Math.min(Math.max(1, Number(selected.page) || 1), totalPages);
@@ -120,7 +118,7 @@ function renderShopGrid(targetSelector, filters) {
     if (!matches.length) {
         const empty = document.createElement('div');
         empty.className = 'cart-empty-msg';
-        empty.textContent = 'No products match your filters.';
+        empty.textContent = selected.sale ? 'No current promotions are confirmed.' : 'No products match your filters.';
         el.appendChild(empty);
     } else {
         matches.slice((currentPage - 1) * pageSize, currentPage * pageSize)
