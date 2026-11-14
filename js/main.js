@@ -172,8 +172,8 @@ function renderSiteHeader() {
     const brand = document.createElement('a');
     brand.href = home;
     brand.className = 'brand-logo';
-    brand.setAttribute('aria-label', 'Tsegaye Furniture home');
-    brand.innerHTML = '<span class="logo-circle" aria-hidden="true"><i class="fa-solid fa-couch"></i></span><span class="brand-text"><span class="brand-name">Tsegaye Furniture</span></span>';
+    brand.setAttribute('aria-label', 'Top Furniture home');
+    brand.innerHTML = '<span class="logo-circle" aria-hidden="true"><i class="fa-solid fa-couch"></i></span><span class="brand-text"><span class="brand-name">Top Furniture</span></span>';
 
     const mobileToggle = document.createElement('button');
     mobileToggle.className = 'mobile-nav-toggle';
@@ -343,7 +343,7 @@ function renderSiteFooter() {
     if (!footer) return;
     const home = window.location.pathname.includes('/pages/') ? '../index.html' : 'index.html';
     footer.innerHTML = `<div class="container footer-grid site-footer-grid">
-        <div class="footer-brand"><a href="${home}" class="footer-brand-name">Tsegaye Furniture</a><p>Furniture and home electronics for everyday living.</p></div>
+        <div class="footer-brand"><a href="${home}" class="footer-brand-name">Top Furniture</a><p>Furniture and home electronics for everyday living.</p></div>
         <div><h2>Shop</h2><ul><li><a href="${siteLink('shop.html')}">All products</a></li><li><a href="${siteLink('furniture.html')}">Furniture</a></li><li><a href="${siteLink('electronics.html')}">Electronics</a></li><li><a href="${siteLink('shop.html?sale=1')}">Promotions</a></li></ul></div>
         <div><h2>Customer support</h2><ul><li><a href="${siteLink('delivery.html')}">Delivery</a></li><li><a href="${siteLink('contact.html#order-assistance')}">Order assistance</a></li><li><a href="${siteLink('returns.html')}">Returns &amp; warranty</a></li><li><a href="${siteLink('faq.html')}">Frequently asked questions</a></li></ul></div>
         <div><h2>Company &amp; contact</h2><ul><li><a href="${siteLink('about.html')}">About</a></li><li><a href="${siteLink('contact.html')}">Contact</a></li><li><a href="${siteLink('privacy.html')}">Privacy</a></li><li><a href="${siteLink('terms.html')}">Terms</a></li></ul><p class="footer-contact-note">Business contact channels are awaiting confirmation.</p></div>
