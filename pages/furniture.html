@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniture | Furniture Roomstore</title>
+    <title>Furniture | Tsegaye Furniture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/products.js" defer></script>
@@ -11,16 +11,26 @@
     <script src="../js/main.js" defer></script>
 </head>
 <body>
-    <header class="navbar"></header>
+    <header class="navbar">
+    <div class="container nav-container no-js-header">
+        <a href="../index.html" class="brand-logo" aria-label="Tsegaye Furniture home"><span class="logo-circle" aria-hidden="true"><i class="fa-solid fa-couch"></i></span><span class="brand-text"><span class="brand-name">Tsegaye Furniture</span></span></a>
+        <nav class="no-js-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="login.html">Account</a><a href="cart.html">Cart</a></nav>
+    </div>
+</header>
     <main class="container home-section">
         <nav class="shop-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Furniture</span></nav>
         <h1>Furniture</h1>
         <p>Browse furniture in the current catalogue by room and product type.</p>
-        <nav class="room-links" aria-label="Furniture categories"><a href="shop.html?category=sofa">Sofas &amp; seating</a><a href="shop.html?category=bed">Beds &amp; bedroom</a><a href="shop.html?category=dining">Dining</a><a href="shop.html?room=office">Home office</a><a href="shop.html?room=outdoor">Outdoor</a><a href="shop.html?category=table">Tables &amp; desks</a></nav>
+        <nav class="room-links" aria-label="Furniture categories"><a href="shop.html?category=sofa">Sofas &amp; seating</a><a href="shop.html?category=bed">Beds &amp; bedroom furniture</a><a href="shop.html?category=dining">Dining furniture</a><a href="shop.html?category=table">Tables &amp; desks</a><a href="shop.html?category=chair">Chairs</a></nav>
         <div class="section-header"><h2 class="section-title">Furniture collection</h2></div>
         <div class="product-grid" id="departmentGrid"></div>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer"><div class="container footer-grid site-footer-grid">
+    <div class="footer-brand"><a href="../index.html" class="footer-brand-name">Tsegaye Furniture</a><p>Furniture and home electronics for everyday living.</p></div>
+    <div><h2>Shop</h2><ul><li><a href="shop.html">All products</a></li><li><a href="furniture.html">Furniture</a></li><li><a href="electronics.html">Electronics</a></li></ul></div>
+    <div><h2>Customer support</h2><ul><li><a href="delivery.html">Delivery</a></li><li><a href="returns.html">Returns &amp; warranty</a></li><li><a href="faq.html">Frequently asked questions</a></li></ul></div>
+    <div><h2>Company &amp; contact</h2><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+</div></footer>
     <script>document.addEventListener('DOMContentLoaded', () => renderProductCollection('#departmentGrid', product => getProductDepartment(product) === 'furniture', 12));</script>
 </body>
 </html>

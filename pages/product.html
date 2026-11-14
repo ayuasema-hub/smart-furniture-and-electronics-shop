@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product | Furniture Roomstore</title>
+    <title>Product | Tsegaye Furniture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/products.js" defer></script>
@@ -17,31 +17,9 @@
 
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="navbar">
-    <div class="container nav-container">
-        <a href="../index.html" class="brand-logo">
-            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-            <div class="brand-text">
-                <h1>Furniture &amp; Appliances</h1>
-                <span>Roomstore</span>
-            </div>
-        </a>
-        <nav class="nav-links">
-            <a href="../index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="product.html" class="active">Deals</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <div class="nav-actions">
-            <a href="login.html" class="btn-gold">Sign in</a>
-            <a href="cart.html" class="nav-icon" title="Shopping Cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="cart-badge">0</span>
-            </a>
-            <a href="shop.html" class="nav-icon" title="Search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </a>
-        </div>
+    <div class="container nav-container no-js-header">
+        <a href="../index.html" class="brand-logo" aria-label="Tsegaye Furniture home"><span class="logo-circle" aria-hidden="true"><i class="fa-solid fa-couch"></i></span><span class="brand-text"><span class="brand-name">Tsegaye Furniture</span></span></a>
+        <nav class="no-js-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="login.html">Account</a><a href="cart.html">Cart</a></nav>
     </div>
 </header>
 
@@ -92,60 +70,12 @@
     </main>
 
     <!-- ================= SHARED FOOTER ================= -->
-    <footer class="footer">
-    <div class="container footer-grid">
-        <div>
-            <a href="../index.html" class="brand-logo" style="margin-bottom: 16px;">
-                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                <div class="brand-text">
-                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
-                    <span>Roomstore</span>
-                </div>
-            </a>
-            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
-            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
-            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
-        </div>
-        <div>
-            <h4>Department</h4>
-            <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="shop.html">Showrooms</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Categories</h4>
-            <ul>
-                <li><a href="shop.html">Living Room</a></li>
-                <li><a href="shop.html">Bedroom</a></li>
-                <li><a href="shop.html">Dining</a></li>
-                <li><a href="shop.html">Appliances</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Support</h4>
-            <ul>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="shop.html">Delivery &amp; Returns</a></li>
-                <li><a href="login.html">My Account</a></li>
-            </ul>
-        </div>
-        <div>
-            <div class="social-row">
-                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <h4>Newsletter</h4>
-            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                <input type="email" placeholder="Email address" required />
-                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
-            </form>
-        </div>
-    </div>
-</footer>
+    <footer class="footer"><div class="container footer-grid site-footer-grid">
+    <div class="footer-brand"><a href="../index.html" class="footer-brand-name">Tsegaye Furniture</a><p>Furniture and home electronics for everyday living.</p></div>
+    <div><h2>Shop</h2><ul><li><a href="shop.html">All products</a></li><li><a href="furniture.html">Furniture</a></li><li><a href="electronics.html">Electronics</a></li></ul></div>
+    <div><h2>Customer support</h2><ul><li><a href="delivery.html">Delivery</a></li><li><a href="returns.html">Returns &amp; warranty</a></li><li><a href="faq.html">Frequently asked questions</a></li></ul></div>
+    <div><h2>Company &amp; contact</h2><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+</div></footer>
 
     <script>
     let currentProduct = null;
@@ -205,14 +135,14 @@
         const id = new URLSearchParams(window.location.search).get('id');
         currentProduct = getProductById(id);
         if (!currentProduct) {
-            document.title = 'Product not found | Furniture Roomstore';
+            document.title = 'Product not found | Tsegaye Furniture';
             document.getElementById('productContent').hidden = true;
             document.getElementById('productNotFound').hidden = false;
             document.querySelector('.related-products-section').hidden = true;
             return;
         }
 
-        document.title = `${currentProduct.name} | Furniture Roomstore`;
+        document.title = `${currentProduct.name} | Tsegaye Furniture`;
         document.getElementById('productName').textContent = currentProduct.name;
         document.getElementById('breadcrumbProduct').textContent = currentProduct.name;
         document.getElementById('productPriceVal').textContent = formatETB(currentProduct.price);
@@ -225,7 +155,7 @@
             brand.textContent = currentProduct.brand;
             brand.hidden = false;
         }
-        if (Number(currentProduct.oldPrice) > Number(currentProduct.price)) {
+        if (currentProduct.verifiedPromotion === true && Number(currentProduct.oldPrice) > Number(currentProduct.price)) {
             const oldPrice = document.getElementById('productOldPrice');
             oldPrice.textContent = `Was ${formatETB(currentProduct.oldPrice)}`;
             oldPrice.hidden = false;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order Confirmed | Furniture Roomstore</title>
+    <title>Demo Order Reference | Tsegaye Furniture</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/products.js" defer></script>
@@ -14,113 +14,42 @@
 
 <body>
     <header class="navbar">
-    <div class="container nav-container">
-        <a href="../index.html" class="brand-logo">
-            <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-            <div class="brand-text">
-                <h1>Furniture &amp; Appliances</h1>
-                <span>Roomstore</span>
-            </div>
-        </a>
-        <nav class="nav-links">
-            <a href="../index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="product.html">Deals</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <div class="nav-actions">
-            <a href="login.html" class="btn-gold">Sign in</a>
-            <a href="cart.html" class="nav-icon" title="Shopping Cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="cart-badge">0</span>
-            </a>
-            <a href="shop.html" class="nav-icon" title="Search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </a>
-        </div>
+    <div class="container nav-container no-js-header">
+        <a href="../index.html" class="brand-logo" aria-label="Tsegaye Furniture home"><span class="logo-circle" aria-hidden="true"><i class="fa-solid fa-couch"></i></span><span class="brand-text"><span class="brand-name">Tsegaye Furniture</span></span></a>
+        <nav class="no-js-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a><a href="login.html">Account</a><a href="cart.html">Cart</a></nav>
     </div>
 </header>
 
     <main class="container" style="padding:80px 0; text-align:center;">
         <div id="orderConfirmation" style="max-width:560px; margin:0 auto; background:var(--bg-white); padding:48px 32px; border-radius:8px; box-shadow:var(--shadow-soft);" hidden>
             <i class="fa-solid fa-circle-check" style="font-size:56px; color:var(--gold); margin-bottom:20px;"></i>
-            <h1 style="font-size:28px; font-weight:700; margin-bottom:12px;">Demo order received</h1>
-            <p style="color:var(--text-muted); margin-bottom:8px;">Reference</p>
+            <h1 style="font-size:28px; font-weight:700; margin-bottom:12px;">No order has been placed</h1>
+            <p style="color:var(--text-muted); margin-bottom:8px;">Checkout preview reference</p>
             <p id="orderIdDisplay" style="font-size:22px; font-weight:700; margin-bottom:18px;"></p>
-            <p id="demoOrderDetails" style="color:var(--text-muted); margin-bottom:24px;"></p>
-            <p class="checkout-demo-note">This frontend demonstration does not submit an order to a store system or process payment.</p>
+            <p id="demoOrderDetails" style="color:var(--text-muted); margin-bottom:24px;">No payment was made.</p>
+            <p class="checkout-demo-note">This reference only records the checkout preview. The business has not received your details or request, and no payment was processed.</p>
             <a href="shop.html" class="btn-gold" style="padding:12px 28px; border-radius:8px;">Continue Shopping</a>
         </div>
         <div id="noOrder" style="max-width:560px; margin:0 auto; padding:48px 32px;">
-            <h1 style="font-size:28px; margin-bottom:12px;">No demo order found</h1>
-            <p style="color:var(--text-muted); margin-bottom:24px;">Submit the checkout form to create a temporary demo reference.</p>
+            <h1 style="font-size:28px; margin-bottom:12px;">No checkout preview reference found</h1>
+            <p style="color:var(--text-muted); margin-bottom:24px;">You can return to your cart or browse products. Checkout does not place an order.</p>
             <a href="cart.html" class="btn-gold">Return to cart</a>
         </div>
     </main>
 
-    <footer class="footer">
-    <div class="container footer-grid">
-        <div>
-            <a href="../index.html" class="brand-logo" style="margin-bottom: 16px;">
-                <div class="logo-circle"><i class="fa-solid fa-couch"></i></div>
-                <div class="brand-text">
-                    <h1 style="color:#fff;">Furniture &amp; Appliances</h1>
-                    <span>Roomstore</span>
-                </div>
-            </a>
-            <p style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--gold); width:18px;"></i> Bole Road, Addis Ababa, Ethiopia</p>
-            <p style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--gold); width:18px;"></i> +251 911 234 567</p>
-            <p><i class="fa-solid fa-envelope" style="color:var(--gold); width:18px;"></i> info@furnitureroomstore.et</p>
-        </div>
-        <div>
-            <h4>Department</h4>
-            <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="shop.html">Showrooms</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Categories</h4>
-            <ul>
-                <li><a href="shop.html">Living Room</a></li>
-                <li><a href="shop.html">Bedroom</a></li>
-                <li><a href="shop.html">Dining</a></li>
-                <li><a href="shop.html">Appliances</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Support</h4>
-            <ul>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="shop.html">Delivery &amp; Returns</a></li>
-                <li><a href="login.html">My Account</a></li>
-            </ul>
-        </div>
-        <div>
-            <div class="social-row">
-                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-            <h4>Newsletter</h4>
-            <p style="margin-bottom:8px;">Get new arrivals and offers in your inbox.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
-                <input type="email" placeholder="Email address" required />
-                <button type="submit" class="btn-gold" style="border-radius:6px; padding:8px 14px;">Go</button>
-            </form>
-        </div>
-    </div>
-</footer>
+    <footer class="footer"><div class="container footer-grid site-footer-grid">
+    <div class="footer-brand"><a href="../index.html" class="footer-brand-name">Tsegaye Furniture</a><p>Furniture and home electronics for everyday living.</p></div>
+    <div><h2>Shop</h2><ul><li><a href="shop.html">All products</a></li><li><a href="furniture.html">Furniture</a></li><li><a href="electronics.html">Electronics</a></li></ul></div>
+    <div><h2>Customer support</h2><ul><li><a href="delivery.html">Delivery</a></li><li><a href="returns.html">Returns &amp; warranty</a></li><li><a href="faq.html">Frequently asked questions</a></li></ul></div>
+    <div><h2>Company &amp; contact</h2><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+</div></footer>
     <script>
         const orderId = sessionStorage.getItem('fr_last_order_id');
         const confirmation = document.getElementById('orderConfirmation');
         if (orderId && sessionStorage.getItem('fr_last_order_status') === 'demo-only') {
-            const methods = { telebirr: 'Telebirr selected', cbebirr: 'CBE Birr selected', cod: 'Cash on Delivery selected' };
-            document.title = 'Demo Order Received | Furniture Roomstore';
+            document.title = 'Checkout Preview | Tsegaye Furniture';
             document.getElementById('orderIdDisplay').textContent = orderId;
-            document.getElementById('demoOrderDetails').textContent = `${methods[sessionStorage.getItem('fr_last_order_payment_method')] || 'Payment method selected'} · ${sessionStorage.getItem('fr_last_order_total') || ''}`;
+            document.getElementById('demoOrderDetails').textContent = `Items subtotal: ${sessionStorage.getItem('fr_last_order_total') || 'not available'}. No payment was made.`;
             confirmation.hidden = false;
             document.getElementById('noOrder').hidden = true;
         }
